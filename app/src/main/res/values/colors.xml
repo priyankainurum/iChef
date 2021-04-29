@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+<!--timeit-->
+    <color name="darksteelblue">#3C9A8F</color>
+    <color name="lightblue">#6DCFF6</color>
+    <color name="offwhite">#F0F0F0</color>
+    <color name="textblue">#6490FF</color>
+    <color name="grey">#C4C4C4</color>
+    <color name="lightgrey">#EDEDED</color>
+    <color name="red">#F61414</color>#
+    <color name="orange">#FDBB27</color>
+    <color name="backblack">#363436</color>
+    <color name="lightblack">#4E4A4E</color>
+    <color name="darkgrey">#B3ADB3</color>
+    <color name="offSteelGreen">#75FF87</color>
+    <color name="colorlightgreen">#E3FDE3</color>
+    <color name="transpartent">#00fbb08d</color>
+    <color name="quantumyellow">#FFF200</color>
+    <color name="lightbluetext">#D6E1FF</color>
+    <color name="boxback">#2382A8</color>
+    <color name="colorbtn">#559FF6</color>
+    <!--custom-->
+    <color name="themered">#c10b28</color>
+    <color name="maroon">#800719</color>
+    <color name="offbtn">#D8455E</color>
+    <color name="greymid">#919090</color>
+    <color name="green">#8ba93d</color>
+    <color name="greyview">#919883</color>
+</resources>

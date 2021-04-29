@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".activity.CertificateOperation">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:id="@+id/statsbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:background="@color/white"
+            ><ImageView
+            android:id="@+id/back"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:src="@drawable/back"
+            android:paddingLeft="@dimen/_10sdp"
+            ></ImageView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_marginRight="@dimen/_25sdp"
+                android:text="Certificate of Operation"
+                android:layout_gravity="center_vertical"
+                android:gravity="center" android:fontFamily="@font/lato"
+                android:textColor="@color/black"
+                android:textSize="16dp"/>
+
+
+        </LinearLayout>
+        <TextView
+            android:layout_below="@+id/points"
+            android:id="@+id/earnd"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:text="Please provide the certificates \nof your business"
+            android:layout_gravity="center_vertical"
+            android:gravity="center" android:fontFamily="@font/lato"
+            android:textColor="@color/lightblack"
+            android:textSize="16dp"/>
+        <RelativeLayout
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:paddingLeft="@dimen/_30sdp"
+            android:paddingRight="@dimen/_30sdp"
+            android:layout_gravity="center"
+            android:background="@color/white"
+            android:weightSum="3"
+            >
+            <ImageView
+                android:id="@+id/btn1"
+                android:layout_weight="1"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:src="@drawable/tick"
+                ></ImageView>
+            <View
+                android:layout_toRightOf="@id/btn1"
+                android:id="@+id/view1"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@color/themered"
+                ></View>
+
+            <ImageView
+                android:id="@+id/btn2"
+                android:layout_toRightOf="@id/view1"
+                android:layout_weight="1"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:src="@drawable/redbtn"
+                ></ImageView>
+            <View
+                android:id="@+id/view2"
+                android:layout_toRightOf="@id/btn2"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@color/greymid"
+                ></View>
+
+            <ImageView
+                android:layout_toRightOf="@id/view2"
+                android:layout_weight="1"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:src="@drawable/greybtn"
+                ></ImageView>
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" Passport photo"
+            android:gravity="left" android:fontFamily="@font/lato"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_gravity="center"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="@color/lightblack"
+            ></TextView>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:backgroundTint="@color/grey"
+            android:drawableRight="@drawable/ticksmall"
+            android:fallbackLineSpacing="true"
+            android:fontFamily="@font/lato"
+            android:gravity="left"
+            android:hint="passportphoto.jpeg"
+            android:text=""
+            android:textColor="@color/lightblack"
+            android:textColorHint="@color/grey"
+            android:textSize="@dimen/_12sdp"></EditText>
+
+        <TextView
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" License 1"
+            android:gravity="left" android:fontFamily="@font/lato"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_gravity="center"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="@color/lightblack"
+            ></TextView>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:text=""
+            android:hint="License1.jpeg"
+            android:drawableRight="@drawable/ticksmall"
+            android:textColorHint="@color/grey"
+            android:gravity="left" android:fontFamily="@font/lato"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/grey"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="@color/lightblack"
+            ></EditText>
+
+
+        <EditText
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:text="" android:fontFamily="@font/lato"
+            android:hint="Certificate of abc"
+            android:textColorHint="@color/grey"
+            android:gravity="left"
+            android:drawableRight="@drawable/addiconsmall"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_gravity="center"
+            android:fallbackLineSpacing="true"
+            android:textSize="@dimen/_12sdp"
+            android:backgroundTint="@color/grey"
+            android:textColor="@color/lightblack"
+            ></EditText>
+        <EditText
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:text="" android:fontFamily="@font/lato"
+            android:hint="Certificate of xyz"
+            android:textColorHint="@color/grey"
+            android:gravity="left"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_gravity="center"
+            android:fallbackLineSpacing="true"
+            android:textSize="@dimen/_12sdp"
+            android:drawableRight="@drawable/addiconsmall"
+            android:backgroundTint="@color/grey"
+            android:textColor="@color/lightblack"
+            ></EditText>
+
+        <TextView
+            android:id="@+id/skip"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Skip" android:fontFamily="@font/lato"
+            android:gravity="center"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_gravity="center"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="@color/themered"
+            ></TextView>
+
+        <RelativeLayout
+            android:id="@+id/llcontinueco"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:background="@drawable/border"
+            android:backgroundTint="@color/themered"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Next" android:fontFamily="@font/lato"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textSize="@dimen/_14sdp"
+                android:textColor="@color/white"
+                ></TextView>
+            <ImageView
+                android:layout_alignParentRight="true"
+                android:id="@+id/forward"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:src="@drawable/back"
+                android:rotation="180"
+                android:paddingLeft="@dimen/_10sdp"
+                app:tint="@color/white"></ImageView>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

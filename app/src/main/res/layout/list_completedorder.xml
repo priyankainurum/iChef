@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/_10sdp"
+    android:backgroundTint="@color/white"
+    android:orientation="horizontal"
+    android:weightSum="2"
+    android:background="@drawable/border2">
+    <LinearLayout
+        android:layout_weight=".8"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/_10sdp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/namecartitem" android:fontFamily="@font/lato"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/nameoffood"
+                android:textStyle="bold"
+                android:textColor="@color/themered"
+                android:textSize="18dp"/>
+
+
+            <TextView
+                android:layout_below="@id/namecartitem" android:fontFamily="@font/lato"
+                android:id="@+id/more"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/moredetail"
+                android:textColor="@color/black"
+                android:textSize="14dp"/>
+            <TextView
+                android:layout_below="@id/more" android:fontFamily="@font/lato"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/moredetail"
+                android:textColor="@color/black"
+                android:textSize="14dp"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+
+            android:layout_marginTop="@dimen/_5sdp"
+            android:id="@+id/rlloc"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_20sdp"
+            android:background="@drawable/border"
+            android:paddingLeft="@dimen/_10sdp"
+            >
+
+
+            <ImageView
+                android:id="@+id/location"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:src="@drawable/location"
+                ></ImageView>
+            <TextView
+                android:layout_toRightOf="@id/location" android:fontFamily="@font/lato"
+                android:layout_width="wrap_content"
+                android:id="@+id/loc"
+                android:layout_height="@dimen/_15sdp"
+                android:text="From Location"
+                android:paddingLeft="@dimen/_10sdp"
+                android:gravity="center_vertical"
+                android:textColor="@color/black"
+                android:textSize="15dp"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginTop="@dimen/_5sdp"
+            android:id="@+id/rltime"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_20sdp"
+            android:background="@drawable/border"
+            android:paddingLeft="@dimen/_10sdp"
+            >
+
+
+            <ImageView
+                android:id="@+id/clock"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:src="@drawable/clock"
+                ></ImageView>
+            <TextView
+                android:layout_toRightOf="@id/clock" android:fontFamily="@font/lato"
+                android:layout_width="wrap_content"
+                android:id="@+id/time"
+                android:layout_height="@dimen/_15sdp"
+                android:text="Booking Time And date"
+                android:paddingLeft="@dimen/_10sdp"
+                android:gravity="center_vertical"
+                android:textColor="@color/black"
+                android:textSize="15dp"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="1.2"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:layout_gravity="bottom">
+        <TextView
+            android:id="@+id/despute" android:fontFamily="@font/lato"
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:text="Dispute"
+            android:layout_gravity="center"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="@color/white"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:backgroundTint="@color/grey"
+            ></TextView>
+
+        <TextView
+            android:id="@+id/addtofav" android:fontFamily="@font/lato"
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:text="Add to favourite"
+            android:layout_gravity="center"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="@color/white"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:backgroundTint="@color/grey"
+            ></TextView>
+        <TextView
+            android:id="@+id/proceed" android:fontFamily="@font/lato"
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:text="Feedback"
+            android:layout_gravity="center"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="@color/white"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:backgroundTint="@color/themered"
+            ></TextView>
+
+
+    </LinearLayout>
+</LinearLayout>

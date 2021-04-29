@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ichef.android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/appicon"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/appicon"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Design.NoActionBar"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".activity.Checkout"></activity>
+        <activity android:name=".activity.LocationManually" />
+        <activity android:name=".activity.NiceToMeetYou" />
+        <activity android:name=".activity.AddNewItem" />
+        <activity android:name=".activity.MyRestaurant" />
+        <activity android:name=".activity.RunningOrder" />
+        <activity android:name=".activity.CompletedOrder" />
+        <activity android:name=".activity.MyProfile" />
+        <activity android:name=".activity.AlmostDone" />
+        <activity android:name=".activity.CertificateOperation" />
+        <activity android:name=".activity.BusinessDetail" />
+        <activity android:name=".activity.PersonalDetail" />
+        <activity android:name=".activity.Otp" />
+        <activity android:name=".activity.MyCart" />
+        <activity android:name=".activity.FoodDetail" />
+        <activity android:name=".activity.MyReward" />
+        <activity android:name=".activity.HomePageActivity" />
+        <activity android:name=".activity.Login" />
+        <activity android:name=".activity.SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>
