@@ -22,6 +22,8 @@
     <string name="nameofcustmer">Name of customer</string>
     <string name="feedback">Feedback of customer as per he has typed after received his meal</string>
     <string name="searchlocation">Search for your location</string>
+    <string name="resend"><u> Resend now </u></string>
+    <string name="google_maps_key">AIzaSyCugiaRaaJDcCbgmy8Pxmc3bBv6GE-Z9xo</string>
 
     <string-array name="countryCodes">
         <item>93,AF</item>

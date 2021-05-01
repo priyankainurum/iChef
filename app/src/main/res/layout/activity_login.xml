@@ -155,7 +155,6 @@
             android:layout_width="@dimen/_100sdp"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:paddingLeft="@dimen/_5sdp"
             android:background="@color/lightgrey"
 
             >
@@ -188,7 +187,6 @@
                 android:layout_height="match_parent"
                 app:contentColor="@color/black"
                 android:onClick="onCountryPickerClick"
-
                  />
         </LinearLayout>
             <EditText

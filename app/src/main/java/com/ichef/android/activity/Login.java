@@ -47,6 +47,9 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         init();
         onclick();
+      // ccp.setContentColor(R.color.themered);
+     //   ccp.setBackgroundColor(Color.WHITE);
+
 
     }
     public void onCountryPickerClick(View view) {
@@ -55,7 +58,8 @@ public class Login extends AppCompatActivity {
             public void onCountrySelected() {
                // Alert.showMessage(Login.this, ccp.getSelectedCountryCodeWithPlus());
                 selected_country_code = ccp.getSelectedCountryCodeWithPlus();
-                Toast.makeText(Login.this, ""+selected_country_code, Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(Login.this, ""+selected_country_code, Toast.LENGTH_SHORT).show();
+                Toast.makeText(Login.this, "Updated " + ccp.getSelectedCountryName(), Toast.LENGTH_SHORT).show();
             }
         });
     }

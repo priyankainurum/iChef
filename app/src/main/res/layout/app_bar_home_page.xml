@@ -35,6 +35,7 @@
                 android:id="@+id/locationtxt"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:gravity="center" android:fontFamily="@font/lato"
                 android:paddingLeft="@dimen/_5sdp"
                 android:paddingRight="@dimen/_5sdp"

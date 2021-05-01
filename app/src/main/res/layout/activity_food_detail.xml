@@ -302,6 +302,7 @@
                     android:orientation="horizontal"
                     android:weightSum="3">
                     <RelativeLayout
+                        android:id="@+id/dialogmode"
                         android:layout_weight="1"
                         android:layout_gravity="center"
                         android:gravity="center"
@@ -343,6 +344,7 @@
 
                     </RelativeLayout>
                     <RelativeLayout
+                        android:id="@+id/dialogtime"
                         android:layout_weight="1"
                         android:layout_gravity="center"
                         android:gravity="center"
@@ -383,6 +385,7 @@
 
                     </RelativeLayout>
                     <RelativeLayout
+                        android:id="@+id/dialogoffer"
                         android:layout_weight="1"
                         android:layout_gravity="center"
                         android:gravity="center"
@@ -548,18 +551,6 @@
 
 
             </RelativeLayout>
-            <androidx.recyclerview.widget.RecyclerView
-                android:visibility="gone"
-                android:layout_marginLeft="@dimen/_60sdp"
-                android:layout_below="@+id/drop"
-                android:id="@+id/rvlisttime"
-                android:layout_width="@dimen/_160sdp"
-                android:layout_height="@dimen/_60sdp"
-                android:text="10 am to 12 mid night (today)"
-                android:paddingLeft="@dimen/_10sdp"
-                android:gravity="center_vertical"
-                android:textColor="@color/black"
-                android:textSize="15dp"/>
             <RelativeLayout
                 android:id="@+id/rlcost"
                 android:layout_marginTop="@dimen/_10sdp"

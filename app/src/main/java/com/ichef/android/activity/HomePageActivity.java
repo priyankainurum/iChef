@@ -47,7 +47,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
-public class HomePageActivity extends AppCompatActivity implements LocationListener
+public class HomePageActivity extends AppCompatActivity
+        // implements LocationListener
         // implements  NavigationView.OnNavigationItemSelectedListener
 {
     MyExpandableListAdapter listAdapter;
@@ -80,10 +81,24 @@ public class HomePageActivity extends AppCompatActivity implements LocationListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page2);
+        String city = Prefrence.get(HomePageActivity.this, Prefrence.CITYNAME);
+      //  Toast.makeText(HomePageActivity.this, ""+city, Toast.LENGTH_SHORT).show();
 
         init();
         onclick();
-        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+
+        locationtxt.setText(city);
+       /* Intent intent = getIntent();
+        String city= intent.getStringExtra("city");
+        Toast.makeText(HomePageActivity.this, ""+city, Toast.LENGTH_SHORT).show();
+        if(city.equals(null)||city.equals("")){
+            locationtxt.setText(city);
+            }
+        else{
+            locationtxt.setText("Location");
+        }*/
+/**/
+        /*locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
@@ -94,7 +109,7 @@ public class HomePageActivity extends AppCompatActivity implements LocationListe
             // for ActivityCompat#requestPermissions for more details.
             return;
         }
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);*/
     }
 
     private void init() {
@@ -140,6 +155,7 @@ public class HomePageActivity extends AppCompatActivity implements LocationListe
 
     }
 
+/*
     @Override
     public void onLocationChanged(Location location) {
         double latitude = location.getLatitude();
@@ -176,8 +192,9 @@ public class HomePageActivity extends AppCompatActivity implements LocationListe
         String currentlocation =city.toString();
 
     }
+*/
 
-    @Override
+  /*  @Override
     public void onProviderDisabled(String provider) {
         Log.d("Latitude","disable");
     }
@@ -190,5 +207,5 @@ public class HomePageActivity extends AppCompatActivity implements LocationListe
     @Override
     public void onStatusChanged(String provider, int status, Bundle extras) {
         Log.d("Latitude","status");
-    }
+    }*/
 }

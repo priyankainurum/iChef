@@ -5,14 +5,17 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -49,7 +52,10 @@ public class FoodDetail extends AppCompatActivity {
     LinearLayout btndelivery,btndining,btnreview,lldelivery,lldining,llreview;
     ImageView bikeblack,diningblack,reviewblack;
     TextView txbiketx,diningtx,txtreview;
-    RelativeLayout buynow,addtocart;
+    RelativeLayout buynow,addtocart,dialogmode,dialogtime,dialogoffer,rltiming;
+
+    Button btnClick, btnClose, btnRate;
+    RatingBar rBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +84,118 @@ public class FoodDetail extends AppCompatActivity {
     }
 
     private void onclick() {
+        dialogmode.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+                // add listener to button
+                final Dialog dialog = new Dialog(FoodDetail.this);   // Create custom dialog object
+                dialog.setContentView(R.layout.dialogmode);       // Include dialog.xml file
+                dialog.show();                                         // Set dialog title dialog.setTitle("Custom Dialog");
+
+                //  rBar = dialog.findViewById(R.id.rate_app);
+                btnRate = (Button) dialog.findViewById(R.id.btn_submit_rating);
+                //Performing action on Button Click
+                btnRate.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View arg0) {
+                        //Getting the rating and displaying it in the toast
+                        //   String rating = String.valueOf(rBar.getRating());
+                        //   Toast.makeText(getApplicationContext(), "You have rated :   " + rating, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "You have clicked on OK :   ", Toast.LENGTH_SHORT).show();
+
+                    }
+
+                });
+
+                btnClose = (Button) dialog.findViewById(R.id.btn_remind_later);
+                // if the button is clicked, close the custom dialog box
+                btnClose.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Close dialog
+                        dialog.dismiss();
+                    }
+                });
+            }
+        });
+        dialogoffer.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+                // add listener to button
+                final Dialog dialog = new Dialog(FoodDetail.this);   // Create custom dialog object
+                dialog.setContentView(R.layout.dialogmode);       // Include dialog.xml file
+                dialog.show();                                         // Set dialog title dialog.setTitle("Custom Dialog");
+
+                //  rBar = dialog.findViewById(R.id.rate_app);
+                btnRate = (Button) dialog.findViewById(R.id.btn_submit_rating);
+                //Performing action on Button Click
+                btnRate.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View arg0) {
+                        //Getting the rating and displaying it in the toast
+                        //   String rating = String.valueOf(rBar.getRating());
+                        //   Toast.makeText(getApplicationContext(), "You have rated :   " + rating, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "You have clicked on OK :   ", Toast.LENGTH_SHORT).show();
+
+                    }
+
+                });
+
+                btnClose = (Button) dialog.findViewById(R.id.btn_remind_later);
+                // if the button is clicked, close the custom dialog box
+                btnClose.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Close dialog
+                        dialog.dismiss();
+                    }
+                });
+            }
+        });
+        rltiming.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+                // add listener to button
+                final Dialog dialog = new Dialog(FoodDetail.this);   // Create custom dialog object
+                dialog.setContentView(R.layout.dialogmode);       // Include dialog.xml file
+                dialog.show();                                         // Set dialog title dialog.setTitle("Custom Dialog");
+
+              //  rBar = dialog.findViewById(R.id.rate_app);
+                btnRate = (Button) dialog.findViewById(R.id.btn_submit_rating);
+                //Performing action on Button Click
+                btnRate.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View arg0) {
+                        //Getting the rating and displaying it in the toast
+                     //   String rating = String.valueOf(rBar.getRating());
+                     //   Toast.makeText(getApplicationContext(), "You have rated :   " + rating, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "You have clicked on OK :   ", Toast.LENGTH_SHORT).show();
+                    }
+
+                });
+
+                btnClose = (Button) dialog.findViewById(R.id.btn_remind_later);
+                // if the button is clicked, close the custom dialog box
+                btnClose.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Close dialog
+                        dialog.dismiss();
+                    }
+                });
+            }
+        });
+
+
         addtocart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -195,6 +313,11 @@ public class FoodDetail extends AppCompatActivity {
     }
 
     private void init() {
+        dialogmode=findViewById(R.id.dialogmode);
+        dialogtime=findViewById(R.id.dialogtime);
+        dialogoffer=findViewById(R.id.dialogoffer);
+        rltiming=findViewById(R.id.rltiming);
+
         addtocart=findViewById(R.id.rlcart);
         buynow=findViewById(R.id.rlbutnow);
         bikeblack = findViewById(R.id.bikeblack);

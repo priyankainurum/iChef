@@ -13,7 +13,7 @@
     <LinearLayout
         android:id="@+id/statsbar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_25sdp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:background="@color/white"
         android:weightSum="2"
@@ -21,7 +21,7 @@
         <TextView
             android:layout_weight=".2"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_25sdp"
+            android:layout_height="wrap_content"
             android:text="Search Location"
             android:padding="@dimen/_5sdp"
             android:paddingLeft="@dimen/_10sdp"
@@ -39,6 +39,7 @@
 
 
     </LinearLayout>
+<!--
     <EditText
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_width="match_parent"
@@ -56,6 +57,27 @@
         android:textSize="@dimen/_10sdp"
         android:textColor="@color/grey"
         ></EditText>
+-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:orientation="horizontal"
+        android:background="@drawable/border3"
+        android:layout_gravity="left"
+        android:gravity="left|center"
+        >
+
+        <fragment
+            android:id="@+id/autocomplete_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"
+            android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
+            />
+
+
+    </LinearLayout>
+
     <LinearLayout
         android:id="@+id/currentlocation"
         android:paddingLeft="@dimen/_10sdp"

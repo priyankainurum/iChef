@@ -3,6 +3,8 @@ package com.ichef.android.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -11,12 +13,15 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ichef.android.R;
+import com.ichef.android.utils.Prefrence;
 import com.ichef.android.utils.TransparentProgressDialog;
 
 public class MyProfile extends AppCompatActivity {
 
+    TextView logout;
     LinearLayout yourorder,llorders;
     LinearLayout bookmark,notification,settings,payment,mycart;
     TextView runningorder,completedorder,cancelledorder,myreward,serviceprovider;
@@ -157,6 +162,40 @@ public class MyProfile extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                {
+
+                    AlertDialog.Builder alertDialog = new AlertDialog.Builder(MyProfile.this);
+                    alertDialog.setMessage("Are you sure you want to Logout?");
+                    alertDialog.setIcon(R.drawable.logout);
+                    alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            Prefrence.save(getApplication(), Prefrence.KEY_USER_ID, "");
+                            Prefrence.save(getApplication(), Prefrence.KEY_FIRST_NAME, "");
+                            Prefrence.save(getApplication(), Prefrence.KEY_EMAIL_ID, "");
+                            Intent in = new Intent(MyProfile.this, Login.class);
+                            startActivity(in);
+                            finish();
+                            Toast.makeText(getApplicationContext(), "Logout", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+                    // Setting Negative "NO" Button
+                    alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            // Write your code here to invoke NO event
+                            dialog.dismiss();
+                            dialog.cancel();
+                        }
+                    });
+                    // Showing Alert Message
+                    alertDialog.show();
+                }
+            }
+        });
+
 
 
     }
@@ -175,6 +214,7 @@ public class MyProfile extends AppCompatActivity {
         myreward = findViewById(R.id.myreward);
         mycart = findViewById(R.id.mycart);
         serviceprovider = findViewById(R.id.serviceprovider);
+        logout=findViewById(R.id.logout);
 
     }
 
