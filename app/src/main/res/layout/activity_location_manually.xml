@@ -40,6 +40,7 @@
 
     </LinearLayout>
     <EditText
+        android:layout_marginTop="@dimen/_10sdp"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_30sdp"
         android:text="@string/searchlocation"
@@ -48,6 +49,7 @@
         android:drawableLeft="@drawable/search"
         android:drawableTint="@color/themered"
         android:paddingLeft="@dimen/_10sdp"
+        android:singleLine="true"
         android:paddingRight="@dimen/_20sdp"
         android:layout_gravity="center"
         android:background="@drawable/searchborder"
@@ -55,6 +57,7 @@
         android:textColor="@color/grey"
         ></EditText>
     <LinearLayout
+        android:id="@+id/currentlocation"
         android:paddingLeft="@dimen/_10sdp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
@@ -74,11 +77,11 @@
         <RelativeLayout
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/cart_count_home"
+                android:id="@+id/locationtx"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center" android:fontFamily="@font/lato"

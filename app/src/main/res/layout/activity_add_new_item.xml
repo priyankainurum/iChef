@@ -58,6 +58,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=""
+            android:singleLine="true"
             android:hint="Name of Item"
             android:textColorHint="@color/grey"
             android:gravity="left" android:fontFamily="@font/lato"

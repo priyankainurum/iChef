@@ -204,6 +204,7 @@
                 android:background="@drawable/border1"
                 android:fontFamily="@font/lato"
                 android:padding="@dimen/_5sdp"
+                android:singleLine="true"
                 android:hint="Have promocode ?"
                 android:textColorHint="@color/grey"
                 android:textColor="@color/greymid"

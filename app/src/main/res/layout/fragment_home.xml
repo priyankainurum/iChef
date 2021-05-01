@@ -21,13 +21,14 @@
             android:drawablePadding="@dimen/_5sdp"
             android:drawableTint="@color/themered"
             android:fontFamily="@font/lato"
-            android:gravity="center"
+            android:gravity="left|center"
+            android:singleLine="true"
             android:hint="@string/search"
             android:paddingLeft="@dimen/_10sdp"
             android:paddingRight="@dimen/_20sdp"
-            android:textColor="@color/black"
+            android:textColor="@color/greymid"
             android:textColorHint="@color/grey"
-            android:textSize="@dimen/_10sdp"></EditText>
+            android:textSize="@dimen/_12sdp"></EditText>
 
         <LinearLayout
         android:layout_marginTop="@dimen/_5sdp"

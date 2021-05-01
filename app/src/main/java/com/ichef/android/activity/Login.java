@@ -6,17 +6,22 @@ import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.AnimationUtils;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.hbb20.CountryCodePicker;
 import com.ichef.android.MainActivity;
 import com.ichef.android.R;
 
@@ -33,6 +38,8 @@ public class Login extends AppCompatActivity {
     View view;
     ImageView user,server;
     String users="0",servers="0";
+    CountryCodePicker ccp;
+    String selected_country_code;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +47,21 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         init();
         onclick();
-    }
 
+    }
+    public void onCountryPickerClick(View view) {
+        ccp.setOnCountryChangeListener(new CountryCodePicker.OnCountryChangeListener() {
+            @Override
+            public void onCountrySelected() {
+               // Alert.showMessage(Login.this, ccp.getSelectedCountryCodeWithPlus());
+                selected_country_code = ccp.getSelectedCountryCodeWithPlus();
+                Toast.makeText(Login.this, ""+selected_country_code, Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
     private void onclick() {
+
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -217,6 +236,7 @@ public class Login extends AppCompatActivity {
     }
 
     private void init() {
+        ccp = findViewById(R.id.ccp);
         blank= findViewById(R.id.blank);
         login= findViewById(R.id.login);
         signupnext= findViewById(R.id.signupnext);

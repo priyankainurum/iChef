@@ -152,13 +152,14 @@
             android:background="@drawable/border"
             android:backgroundTint="@color/white"
             > <LinearLayout
-            android:layout_width="@dimen/_80sdp"
+            android:layout_width="@dimen/_100sdp"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:paddingLeft="@dimen/_10sdp"
+            android:paddingLeft="@dimen/_5sdp"
             android:background="@color/lightgrey"
+
             >
-            <ImageView
+       <!--     <ImageView
                 android:layout_width="@dimen/_20sdp"
                 android:layout_height="@dimen/_20sdp"
                 android:gravity="center"
@@ -179,7 +180,16 @@
                 android:background="@android:color/transparent"
                 android:textSize="@dimen/_10sdp"
                 android:textColor="@color/black"
-                ></TextView>
+                ></TextView>-->
+
+            <com.hbb20.CountryCodePicker
+                android:id="@+id/ccp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:contentColor="@color/black"
+                android:onClick="onCountryPickerClick"
+
+                 />
         </LinearLayout>
             <EditText
                 android:id="@+id/phoneno"
@@ -189,12 +199,11 @@
                 android:inputType="number"
                 android:maxLength="10"
                 android:paddingLeft="@dimen/_10sdp"
-                android:fontFamily="@font/lato"
                 android:layout_gravity="center"
                 android:backgroundTint="@color/white"
                 android:background="@color/white"
-                android:textSize="@dimen/_12sdp"
-                android:paddingRight="@dimen/_5sdp"
+                android:textSize="@dimen/_14sdp"
+                android:layout_marginRight="@dimen/_5sdp"
                 android:textColor="@color/lightblack"
                 ></EditText>
 
