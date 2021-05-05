@@ -139,7 +139,7 @@
             android:backgroundTint="@color/grey"
             ></TextView>
         <TextView
-            android:id="@+id/proceed" android:fontFamily="@font/lato"
+            android:id="@+id/feedback" android:fontFamily="@font/lato"
             android:layout_width="@dimen/_120sdp"
             android:layout_height="@dimen/_30sdp"
             android:text="Feedback"

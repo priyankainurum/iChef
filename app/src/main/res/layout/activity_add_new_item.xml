@@ -449,7 +449,7 @@
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=" Availablity in weekdays"
+            android:text=" Availability in weekdays"
             android:gravity="left" android:fontFamily="@font/lato"
             android:layout_marginLeft="@dimen/_20sdp"
             android:layout_marginRight="@dimen/_20sdp"
@@ -570,7 +570,7 @@
                         android:layout_marginRight="@dimen/_2sdp"
                         android:layout_gravity="center"
                         android:textSize="@dimen/_10sdp" android:fontFamily="@font/lato"
-                        android:background="@drawable/circle"
+                        android:background="@drawable/circle2"
                         android:textColor="@color/lightblack"
                         ></TextView>
                 </LinearLayout>
@@ -588,7 +588,7 @@
                         android:layout_marginRight="@dimen/_2sdp"
                         android:layout_gravity="center"
                         android:textSize="@dimen/_10sdp" android:fontFamily="@font/lato"
-                        android:background="@drawable/circle"
+                        android:background="@drawable/circle2"
                         android:textColor="@color/lightblack"
                         ></TextView>
                 </LinearLayout>

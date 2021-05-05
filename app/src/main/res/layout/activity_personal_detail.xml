@@ -62,9 +62,11 @@
             android:textColor="@color/lightblack"
             ></TextView>
         <EditText
+            android:id="@+id/etname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=""
+            android:inputType="text"
             android:singleLine="true"
             android:gravity="left" android:fontFamily="@font/lato"
             android:layout_marginLeft="@dimen/_20sdp"
@@ -88,9 +90,65 @@
             android:textColor="@color/lightblack"
             ></TextView>
         <EditText
+            android:id="@+id/etemail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=""
+            android:singleLine="true"
+            android:inputType="textEmailAddress"
+            android:gravity="left"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp" android:fontFamily="@font/lato"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/grey"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="@color/lightblack"
+            ></EditText>
+        <TextView
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" Password" android:fontFamily="@font/lato"
+            android:gravity="left"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_gravity="center"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="@color/lightblack"
+            ></TextView>
+        <EditText
+            android:id="@+id/etpassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:singleLine="true"
+            android:gravity="left"
+            android:inputType="textPassword"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp" android:fontFamily="@font/lato"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/grey"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="@color/lightblack"
+            ></EditText>
+        <TextView
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" Confirm Password" android:fontFamily="@font/lato"
+            android:gravity="left"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_gravity="center"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="@color/lightblack"
+            ></TextView>
+        <EditText
+            android:id="@+id/etconfrmpass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:inputType="textPassword"
             android:singleLine="true"
             android:gravity="left"
             android:layout_marginLeft="@dimen/_20sdp"
@@ -100,8 +158,6 @@
             android:textSize="@dimen/_12sdp"
             android:textColor="@color/lightblack"
             ></EditText>
-
-
         <LinearLayout
             android:id="@+id/llcontinue"
             android:layout_width="match_parent"

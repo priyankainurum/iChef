@@ -88,28 +88,7 @@ public class HomePageActivity extends AppCompatActivity
         onclick();
 
         locationtxt.setText(city);
-       /* Intent intent = getIntent();
-        String city= intent.getStringExtra("city");
-        Toast.makeText(HomePageActivity.this, ""+city, Toast.LENGTH_SHORT).show();
-        if(city.equals(null)||city.equals("")){
-            locationtxt.setText(city);
-            }
-        else{
-            locationtxt.setText("Location");
-        }*/
 /**/
-        /*locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return;
-        }
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);*/
     }
 
     private void init() {
@@ -155,57 +134,5 @@ public class HomePageActivity extends AppCompatActivity
 
     }
 
-/*
-    @Override
-    public void onLocationChanged(Location location) {
-        double latitude = location.getLatitude();
-        double longitude = location.getLongitude();
-        String lat = String.valueOf(latitude);
-        String lon = String.valueOf(longitude);
-        CommonUtility.setSetting(getApplicationContext(), "latitude", lat);
-        CommonUtility.setSetting(getApplicationContext(), "longitude", lon);
-        List<Address> addresses=null;
-        try {
-            Geocoder geocoder = new Geocoder(this, Locale.getDefault());
-            // addresses = geocoder.getFromLocation(23.2601154, 77.4203411, 1);
-            addresses = geocoder.getFromLocation(latitude, longitude, 1);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Log.d("Geo Location Priyanka", "\n"+addresses.get(0).getAddressLine(0)+", "+
-                addresses.get(0).getAddressLine(1)+", "+addresses.get(0).getAddressLine(2));
 
-        if (addresses!=null && addresses.size()>0){
-
-            Address address = addresses.get(0);
-            StringBuilder sb = new StringBuilder();
-            for (int i=0; i<address.getMaxAddressLineIndex(); i++){
-                sb.append(address.getAddressLine(i)).append("\n");
-            }
-            city = sb.append(address.getLocality()).append("\n").toString();
-            Log.d("city name", city);
-        }
-        txtLat = (TextView) findViewById(R.id.locationtxt);
-       // txtLat.setText("LatLong:" + location.getLatitude() + "," + location.getLongitude());
-
-        txtLat.setText(city);
-        String currentlocation =city.toString();
-
-    }
-*/
-
-  /*  @Override
-    public void onProviderDisabled(String provider) {
-        Log.d("Latitude","disable");
-    }
-
-    @Override
-    public void onProviderEnabled(String provider) {
-        Log.d("Latitude","enable");
-    }
-
-    @Override
-    public void onStatusChanged(String provider, int status, Bundle extras) {
-        Log.d("Latitude","status");
-    }*/
 }

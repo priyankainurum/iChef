@@ -18,7 +18,7 @@ public class BusinessDetail extends AppCompatActivity {
     RelativeLayout llcontinue;
     RadioButton rd1,rd2,rd3,rd4;
     TextView sun,mon,tue,wed,thu,fri,sat;
-    String ssun="0",smon="0",stue="0",swed="0",sthu="0",sfri="0",ssat="0";
+    String ssun="0",smon="0",stue="0",swed="0",sthu="0",sfri="1",ssat="1";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -125,7 +125,6 @@ public class BusinessDetail extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 v.startAnimation(AnimationUtils.loadAnimation(BusinessDetail.this, R.anim.image_click));
-
                 Intent intent = new Intent(BusinessDetail.this, CertificateOperation.class);
                 startActivity(intent);
 

@@ -27,7 +27,7 @@ public class AddNewItem extends AppCompatActivity {
     private Bitmap bitmap1,bitmap2,bitmap3,bitmap4;
     RadioButton rd1,rd2,rd3;
     TextView sun,mon,tue,wed,thu,fri,sat;
-    String ssun="0",smon="0",stue="0",swed="0",sthu="0",sfri="0",ssat="0";
+    String ssun="0",smon="0",stue="0",swed="0",sthu="0",sfri="1",ssat="1";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

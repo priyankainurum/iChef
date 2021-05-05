@@ -8,13 +8,14 @@
     android:layout_gravity="center"
     android:gravity="center"
     android:background="@color/themered">
-<!--
+
     <ImageView
-        android:src="@drawable/logogf"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:src="@drawable/logo"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         android:contentDescription="TODO" />
--->
+
+<!--
     <pl.droidsonroids.gif.GifImageView
         android:layout_width="@dimen/_200sdp"
         android:layout_height="@dimen/_200sdp"
@@ -23,5 +24,6 @@
         android:src="@drawable/logogf"
         android:scaleType="fitXY"
         />
+-->
 
 </LinearLayout>

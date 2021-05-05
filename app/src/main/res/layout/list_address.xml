@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_80sdp"
+    android:padding="@dimen/_10sdp"
+    android:layout_margin="@dimen/_2sdp"
+    android:backgroundTint="@color/lightgrey"
+    android:background="@drawable/border2">
+    <RadioButton
+        android:id="@+id/radio"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_80sdp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:buttonTint="@color/greymid"
+        ></RadioButton>
+    <RelativeLayout
+        android:layout_toRightOf="@id/radio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/_10sdp"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/nameaddress" android:fontFamily="@font/lato"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Home Location"
+            android:textStyle="bold"
+            android:textColor="@color/themered"
+            android:textSize="16dp"/>
+
+
+        <LinearLayout
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:fontFamily="@font/lato"
+                android:id="@+id/edit"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:text="150.00"
+                android:src="@drawable/edit"
+                android:gravity="right"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/themered"
+                android:textSize="16dp"/>
+        </LinearLayout>
+        <RelativeLayout
+
+            android:id="@+id/rlloc"
+            android:paddingTop="@dimen/_5sdp"
+            android:layout_below="@id/nameaddress"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_20sdp"
+            >
+
+
+            <ImageView
+                android:id="@+id/location"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:src="@drawable/location"
+                ></ImageView>
+            <TextView
+
+                android:layout_toRightOf="@id/location" android:fontFamily="@font/lato"
+                android:layout_width="match_parent"
+                android:id="@+id/locationaddress"
+                android:layout_height="@dimen/_14sdp"
+                android:text="ABC colony,xyz Nagar,city,state,country,pin"
+                android:paddingLeft="@dimen/_10sdp"
+                android:gravity="center_vertical"
+                android:textColor="@color/black"
+                android:textSize="14dp"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+
+            android:paddingTop="@dimen/_5sdp"
+            android:layout_below="@id/rlloc"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_20sdp"
+            >
+
+
+            <ImageView
+                android:id="@+id/phone"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:src="@drawable/phone"
+                ></ImageView>
+            <TextView
+                android:layout_toRightOf="@id/phone" android:fontFamily="@font/lato"
+                android:layout_width="wrap_content"
+                android:id="@+id/phoneno"
+                android:layout_height="@dimen/_14sdp"
+                android:text="Contatc Detail,09874651230"
+                android:paddingLeft="@dimen/_10sdp"
+                android:gravity="center_vertical"
+                android:textColor="@color/black"
+                android:textSize="14dp"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

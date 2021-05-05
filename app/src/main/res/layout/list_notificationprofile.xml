@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/_10sdp"
+    android:background="@color/white">
+     <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/_10sdp"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/nameres" android:fontFamily="@font/lato"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/orderaccept"
+            android:textStyle="bold"
+            android:textColor="@color/themered"
+            android:textSize="18dp"/>
+
+
+        <LinearLayout
+            android:id="@+id/star"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:src="@drawable/ticksmall"
+                ></ImageView>
+        </LinearLayout>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:id="@+id/rlloc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_5sdp"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/location"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_20sdp"
+                android:text="Oredr No. " android:fontFamily="@font/lato"
+                android:gravity="center_vertical"
+                android:textColor="@color/black"
+                android:textSize="14dp"/>
+            <TextView
+                android:layout_toRightOf="@id/location"
+                android:id="@+id/orderid"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_20sdp"
+                android:text="XXXXXXX" android:fontFamily="@font/lato"
+                android:paddingLeft="@dimen/_5sdp"
+                android:gravity="center_vertical"
+                android:textColor="@color/black"
+                android:textSize="14dp"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/rlloc2"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_5sdp"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_20sdp"
+                android:text="00:00am"
+                android:fontFamily="@font/lato"
+                android:paddingLeft="@dimen/_5sdp"
+                android:gravity="center_vertical"
+                android:textColor="@color/black"
+                android:textSize="14dp"/>
+            <TextView
+                android:layout_toRightOf="@id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_20sdp"
+                android:text="04/05/2021"
+                android:fontFamily="@font/lato"
+                android:paddingLeft="@dimen/_5sdp"
+                android:gravity="center_vertical"
+                android:textColor="@color/black"
+                android:textSize="14dp"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</LinearLayout>

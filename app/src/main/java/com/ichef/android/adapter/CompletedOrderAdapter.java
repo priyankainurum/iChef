@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.ichef.android.MainActivity;
 import com.ichef.android.R;
+import com.ichef.android.activity.Feedback;
+import com.ichef.android.activity.OrderDetail;
 import com.ichef.android.responsemodel.homefood.Result;
 
 import java.util.ArrayList;
@@ -53,13 +55,21 @@ public void onBindViewHolder(ViewHolder holder, int position) {
     holder.itemView.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(ctx, MainActivity.class);
+            Intent intent = new Intent(ctx, OrderDetail.class);
+            ctx.startActivity(intent);
+        }
+    });
+    holder.feedback.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(ctx, Feedback.class);
             ctx.startActivity(intent);
         }
     });
 
 
-    }
+
+}
 
     @Override
     public int getItemCount() {
@@ -87,7 +97,7 @@ public void onBindViewHolder(ViewHolder holder, int position) {
 
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView name,more,amount;
+        public TextView name,more,feedback;
 
 
     public ViewHolder(View itemView) {
@@ -95,7 +105,7 @@ public void onBindViewHolder(ViewHolder holder, int position) {
 
         this.name = (TextView) itemView.findViewById(R.id.namecartitem);
         this.more = (TextView) itemView.findViewById(R.id.more);
-      //  this.amount = (TextView) itemView.findViewById(R.id.amountcart);
+        this.feedback = (TextView) itemView.findViewById(R.id.feedback);
 
 
     }

@@ -50,6 +50,7 @@ public void onBindViewHolder(ViewHolder holder, int position) {
     holder.more.setText("More detail about order");
   //  holder.amount.setText("N150.00");
 
+/*
     holder.itemView.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -57,6 +58,7 @@ public void onBindViewHolder(ViewHolder holder, int position) {
             ctx.startActivity(intent);
         }
     });
+*/
 
 
     }

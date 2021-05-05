@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.ichef.android.MainActivity;
 import com.ichef.android.R;
+import com.ichef.android.activity.OrderDetail;
 import com.ichef.android.responsemodel.homefood.Result;
 
 import java.util.ArrayList;
@@ -53,7 +54,7 @@ public void onBindViewHolder(ViewHolder holder, int position) {
     holder.itemView.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(ctx, MainActivity.class);
+            Intent intent = new Intent(ctx, OrderDetail.class);
             ctx.startActivity(intent);
         }
     });

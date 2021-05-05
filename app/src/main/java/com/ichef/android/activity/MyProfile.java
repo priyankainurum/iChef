@@ -22,9 +22,11 @@ import com.ichef.android.utils.TransparentProgressDialog;
 public class MyProfile extends AppCompatActivity {
 
     TextView logout;
-    LinearLayout yourorder,llorders;
+    LinearLayout yourorder,favorder,myaddress,llorders;
     LinearLayout bookmark,notification,settings,payment,mycart;
     TextView runningorder,completedorder,cancelledorder,myreward,serviceprovider;
+    ImageView imbookmark,imnotification,imsetting,impayment;
+    TextView txtbookmark,txtnotification,txtsetting,txtpayment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +51,19 @@ public class MyProfile extends AppCompatActivity {
                 payment.setBackgroundResource(R.color.lightgrey);
                 bookmark.setBackgroundResource(R.color.lightgrey);
                 notification.setBackgroundResource(R.color.lightgrey);
+
+                /*imsetting.setImageResource(R.drawable.settingwhite);
+                imnotification.setImageResource(R.drawable.notificationgrey);
+                imbookmark.setImageResource(R.drawable.bookmarks);
+                impayment.setImageResource(R.drawable.payementgrey);
+                */
+               /* txtsetting.setTextColor(Color.parseColor("#FFFFFFFF"));
+                txtpayment.setTextColor(Color.parseColor("#FF000000"));
+                txtnotification.setTextColor(Color.parseColor("#FF000000"));
+                txtbookmark.setTextColor(Color.parseColor("#FF000000"));*/
+
+                Intent intent = new Intent(MyProfile.this, Settings.class);
+                startActivity(intent);
             }
         });
         payment.setOnClickListener(new View.OnClickListener() {
@@ -58,7 +73,9 @@ public class MyProfile extends AppCompatActivity {
                 settings.setBackgroundResource(R.color.lightgrey);
                 payment.setBackgroundResource(R.color.themered);
                 bookmark.setBackgroundResource(R.color.lightgrey);
-                notification.setBackgroundResource(R.color.lightgrey);            }
+                notification.setBackgroundResource(R.color.lightgrey);
+                Intent intent = new Intent(MyProfile.this, Payment.class);
+                startActivity(intent);}
         });
         bookmark.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,6 +85,8 @@ public class MyProfile extends AppCompatActivity {
                 payment.setBackgroundResource(R.color.lightgrey);
                 bookmark.setBackgroundResource(R.color.themered);
                 notification.setBackgroundResource(R.color.lightgrey);
+                Intent intent = new Intent(MyProfile.this, Bookmark.class);
+                startActivity(intent);
             }
         });
         notification.setOnClickListener(new View.OnClickListener() {
@@ -78,6 +97,8 @@ public class MyProfile extends AppCompatActivity {
                 payment.setBackgroundResource(R.color.lightgrey);
                 bookmark.setBackgroundResource(R.color.lightgrey);
                 notification.setBackgroundResource(R.color.themered);
+                Intent intent = new Intent(MyProfile.this, Notification.class);
+                startActivity(intent);
             }
         });
 
@@ -86,11 +107,30 @@ public class MyProfile extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 v.startAnimation(AnimationUtils.loadAnimation(MyProfile.this, R.anim.image_click));
-
-               llorders.setVisibility(View.VISIBLE);
+                llorders.setVisibility(View.VISIBLE);
 
             }
         });
+        favorder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                v.startAnimation(AnimationUtils.loadAnimation(MyProfile.this, R.anim.image_click));
+                llorders.setVisibility(View.GONE);
+                Intent intent = new Intent(MyProfile.this, FavoritesOrder.class);
+                startActivity(intent);
+            }
+        });
+
+        myaddress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                v.startAnimation(AnimationUtils.loadAnimation(MyProfile.this, R.anim.image_click));
+                llorders.setVisibility(View.GONE);
+                Intent intent = new Intent(MyProfile.this, MyAddress.class);
+                startActivity(intent);
+            }
+        });
+
         runningorder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -208,6 +248,8 @@ public class MyProfile extends AppCompatActivity {
 
         llorders = findViewById(R.id.llorders);
         yourorder = findViewById(R.id.yourorder);
+        favorder = findViewById(R.id.favorder);
+        myaddress = findViewById(R.id.myaddress);
         runningorder = findViewById(R.id.runningorder);
         completedorder = findViewById(R.id.completedorder);
         cancelledorder = findViewById(R.id.cancelledorder);
@@ -215,6 +257,8 @@ public class MyProfile extends AppCompatActivity {
         mycart = findViewById(R.id.mycart);
         serviceprovider = findViewById(R.id.serviceprovider);
         logout=findViewById(R.id.logout);
+
+
 
     }
 

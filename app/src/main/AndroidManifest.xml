@@ -10,12 +10,13 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission. ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
-<!--
+    <!--
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="17"        />
--->
+    -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/appicon"
@@ -24,7 +25,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.Checkout"></activity>
+        <activity android:name=".activity.EditAddress"></activity>
+        <activity android:name=".activity.OrderDetail" />
+        <activity android:name=".activity.AddNewAddress" />
+        <activity android:name=".activity.Feedback" />
+        <activity android:name=".activity.MyAddress" />
+        <activity android:name=".activity.FavoritesOrder" />
+        <activity android:name=".activity.Settings" />
+        <activity android:name=".activity.Payment" />
+        <activity android:name=".activity.Notification" />
+        <activity android:name=".activity.Bookmark" />
+        <activity android:name=".activity.Checkout" />
         <activity android:name=".activity.LocationManually" />
         <activity android:name=".activity.NiceToMeetYou" />
         <activity android:name=".activity.AddNewItem" />
@@ -41,7 +52,10 @@
         <activity android:name=".activity.FoodDetail" />
         <activity android:name=".activity.MyReward" />
         <activity android:name=".activity.HomePageActivity" />
-        <activity android:name=".activity.Login" />
+        <activity android:name=".activity.Login"
+            android:screenOrientation="nosensor"
+            />
+
         <activity android:name=".activity.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

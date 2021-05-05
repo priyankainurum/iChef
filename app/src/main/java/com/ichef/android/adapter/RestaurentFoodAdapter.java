@@ -47,7 +47,7 @@ public void onBindViewHolder(ViewHolder holder, int position) {
 
     // holder.drivername.setText(mlist.get(position).getFirstName()+" "+mlist.get(position).getLastName());
      holder.drivername.setText("Name of Food item");
-     holder.branch.setText("Name of restaurent/chef");
+     holder.branch.setText("Name of restaurant/chef");
      holder.vehicletype.setText("N150.00");
      id =mlist.get(position).getIdUserPK();
 

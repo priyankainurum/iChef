@@ -103,6 +103,7 @@
                 android:padding="@dimen/_5sdp"
                 android:orientation="vertical">
                 <ImageView
+                    android:id="@+id/imbookmark"
                     android:layout_width="@dimen/_30sdp"
                     android:layout_height="@dimen/_30sdp"
                     android:src="@drawable/bookmarks"
@@ -111,6 +112,7 @@
                     ></ImageView>
 
                 <TextView
+                    android:id="@+id/txtbookmark"
                     android:layout_toRightOf="@id/location"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_20sdp"
@@ -133,6 +135,7 @@
                 android:padding="@dimen/_5sdp"
                 android:orientation="vertical">
                 <ImageView
+                    android:id="@+id/imnotification"
                     android:layout_width="@dimen/_30sdp"
                     android:layout_height="@dimen/_30sdp"
                     android:src="@drawable/notificationgrey"
@@ -141,6 +144,7 @@
                     ></ImageView>
 
                 <TextView
+                    android:id="@+id/txtnotification"
                     android:layout_toRightOf="@id/location"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_20sdp"
@@ -162,6 +166,7 @@
                 android:padding="@dimen/_5sdp"
                 android:orientation="vertical">
                 <ImageView
+                    android:id="@+id/imsetting"
                     android:layout_width="@dimen/_30sdp"
                     android:layout_height="@dimen/_30sdp"
                     android:src="@drawable/settinggrey"
@@ -170,6 +175,7 @@
                     ></ImageView>
 
                 <TextView
+                    android:id="@+id/txtsetting"
                     android:layout_toRightOf="@id/location"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_20sdp"
@@ -191,6 +197,7 @@
                 android:padding="@dimen/_5sdp"
                 android:orientation="vertical">
                 <ImageView
+                    android:id="@+id/impayment"
                     android:layout_width="@dimen/_30sdp"
                     android:layout_height="@dimen/_30sdp"
                     android:src="@drawable/payementgrey"
@@ -199,6 +206,7 @@
                     ></ImageView>
 
                 <TextView
+                    android:id="@+id/txtpayment"
                     android:layout_toRightOf="@id/location"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_20sdp"

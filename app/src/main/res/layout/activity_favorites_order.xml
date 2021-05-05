@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".activity.FavoritesOrder">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <RelativeLayout
+            android:id="@+id/statsbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:background="@color/white"
+            ><ImageView
+            android:id="@+id/back"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:src="@drawable/back"
+            android:paddingLeft="@dimen/_10sdp"
+            ></ImageView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_20sdp"
+                android:text="Favorite Order"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="16dp"/>
+            <ImageView
+                android:layout_alignParentRight="true"
+                android:id="@+id/heart"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:src="@drawable/heart"
+                android:paddingRight="@dimen/_10sdp"
+                ></ImageView>
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingRight="@dimen/_10sdp"
+            android:paddingLeft="@dimen/_10sdp"
+            android:orientation="vertical">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_gravity="center"
+                android:background="@drawable/searchborder"
+                android:drawableLeft="@drawable/search"
+                android:drawablePadding="@dimen/_5sdp"
+                android:drawableTint="@color/themered"
+                android:fontFamily="@font/lato"
+                android:gravity="left|center"
+                android:singleLine="true"
+                android:hint="@string/searchfav"
+                android:paddingLeft="@dimen/_10sdp"
+                android:paddingRight="@dimen/_20sdp"
+                android:textColor="@color/greymid"
+                android:textColorHint="@color/grey"
+                android:textSize="@dimen/_12sdp"></EditText>
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_30sdp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+                <TextView
+                    android:id="@+id/spinnerres"
+                    android:layout_weight=".8"
+                    android:background="@drawable/searchborder"
+                    android:backgroundTint="@color/themered"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_28sdp" android:fontFamily="@font/lato"
+                    android:popupBackground="@color/white"
+                    android:textColor="@color/white"
+                    android:text="Select Category"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:drawableTint="@color/grey"
+                    android:layout_marginRight="@dimen/_5sdp"
+
+                    ></TextView>
+                <Spinner
+                    android:id="@+id/spinner2"
+                    android:layout_weight="1.2"
+                    android:background="@drawable/searchborder"
+                    android:backgroundTint="@color/themered"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_28sdp"
+                    android:popupBackground="@color/white"
+                    ></Spinner>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_30sdp"
+                android:orientation="horizontal"
+                android:weightSum="3"
+                >
+                <TextView
+                    android:layout_weight="1"
+                    android:background="@drawable/searchborder"
+                    android:layout_width="match_parent"
+                    android:textColor="@color/black"
+                    android:text="Popularity" android:fontFamily="@font/lato"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:drawableTint="@color/grey"
+                    android:drawableLeft="@drawable/updown"
+                    android:layout_height="@dimen/_28sdp"
+                    android:layout_marginRight="@dimen/_5sdp"
+
+                    ></TextView>
+                <TextView
+                    android:layout_weight="1"
+                    android:background="@drawable/searchborder"
+                    android:backgroundTint="@color/themered"
+                    android:layout_width="match_parent"
+                    android:textColor="@color/white" android:fontFamily="@font/lato"
+                    android:text="Rating"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:drawableLeft="@drawable/updown"
+                    android:layout_height="@dimen/_28sdp"
+
+                    ></TextView>
+                <TextView
+                    android:layout_weight="1"
+                    android:background="@drawable/searchborder"
+                    android:layout_width="match_parent"
+                    android:textColor="@color/black"
+                    android:text="Delivery Time"
+                    android:layout_gravity="center"
+                    android:gravity="center" android:fontFamily="@font/lato"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:drawableTint="@color/grey"
+                    android:drawableLeft="@drawable/updown"
+                    android:layout_height="@dimen/_28sdp"
+                    ></TextView>
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:textColor="@color/grey"
+                android:fontFamily="@font/lato"
+                android:text="Here are the result for you..."
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/_12sdp"
+                android:layout_height="@dimen/_28sdp"
+                ></TextView>
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                >
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvlist"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/offwhite">
+
+                </androidx.recyclerview.widget.RecyclerView>
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

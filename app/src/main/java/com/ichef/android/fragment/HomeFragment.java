@@ -1,6 +1,7 @@
 package com.ichef.android.fragment;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 
@@ -11,6 +12,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,7 +41,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements   AdapterView.OnItemSelectedListener {
     APIInterface apiInterface;
     String username;
     TextView spinner;
@@ -46,6 +50,10 @@ public class HomeFragment extends Fragment {
     TransparentProgressDialog dialog;
     RecyclerView.LayoutManager rv_MyProjectLayoutManager;
     List<Result> mListData = new ArrayList<>();
+    ImageView bookmark;
+    String[] tastespinner = { "Select your taste", "Indigenous taste", "Other African", "Continental", "Chinese","Indian","International"};
+    String[] feelspinner = { "What are you feeling like?", "Breakfast mood", "Brunch", "Lunch", "Supper","Dinner","Just to snack"};
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,19 +65,44 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view =inflater.inflate(R.layout.fragment_home, container, false);
         init(view);
+
         return view;
+
     }
 
     private void init(View view) {
-        spinner = view.findViewById(R.id.spinnerres);
+
+       /* spinner = view.findViewById(R.id.spinnerres);
         spinner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), MyRestaurant.class);
                 startActivity(intent);
             }
-        });
+        });*/
 
+        /**/
+        Spinner spin = (Spinner) view.findViewById(R.id.spinner1);
+        spin.setOnItemSelectedListener( this);
+
+        //Creating the ArrayAdapter instance having the country list
+        ArrayAdapter aa = new ArrayAdapter(getContext(),android.R.layout.simple_spinner_item,tastespinner);
+        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        //Setting the ArrayAdapter data on the Spinner
+        spin.setAdapter(aa);
+        spin.setSelection(0);
+        /**/
+        /**/
+        Spinner spin2 = (Spinner) view.findViewById(R.id.spinner2);
+        spin2.setOnItemSelectedListener( this);
+
+        //Creating the ArrayAdapter instance having the country list
+        ArrayAdapter aa2 = new ArrayAdapter(getContext(),android.R.layout.simple_spinner_item,feelspinner);
+        aa2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        //Setting the ArrayAdapter data on the Spinner
+        spin2.setAdapter(aa2);
+        spin2.setSelection(0);
+        /**/
         rv_MyProjectList = view.findViewById(R.id.rvlist);
         rv_MyProjectList.setHasFixedSize(true);
         rv_MyProjectLayoutManager = new LinearLayoutManager(getContext());
@@ -116,4 +149,17 @@ public class HomeFragment extends Fragment {
 
     }
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+       // Toast.makeText(getContext(),tastespinner[position] , Toast.LENGTH_LONG).show();
+      //  Toast.makeText(getContext(),feelspinner[position] , Toast.LENGTH_LONG).show();
+        ((TextView) parent.getChildAt(0)).setTextColor(Color.BLACK);
+        ((TextView) parent.getChildAt(0)).setTextSize(12);
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
 }
