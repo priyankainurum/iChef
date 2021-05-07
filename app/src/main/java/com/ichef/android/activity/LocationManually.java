@@ -254,12 +254,20 @@ public class LocationManually extends AppCompatActivity
                 .show();
     }
 
+/*
     @Override
     protected void onDestroy() {
         super.onDestroy();
         locationTrack.stopListener();
     }
+*/
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(locationTrack != null)
+            locationTrack.stopListener();
+    }
 
     private void init() {
         locationtxt = findViewById(R.id.currentlocation);

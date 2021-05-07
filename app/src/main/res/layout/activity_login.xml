@@ -320,6 +320,7 @@
                     android:padding="@dimen/_2sdp"
                     android:layout_gravity="center"
                     android:src="@drawable/google"></ImageView>
+<!--
                 <TextView
                     android:layout_width="@dimen/_55sdp"
                     android:layout_height="wrap_content"
@@ -330,6 +331,14 @@
                     android:textSize="@dimen/_12sdp"
                     android:textColor="@color/white"
                     ></TextView>
+-->
+                <com.google.android.gms.common.SignInButton
+                    android:id="@+id/sign_in_button"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_25sdp" />
+
 
             </LinearLayout>
             <LinearLayout

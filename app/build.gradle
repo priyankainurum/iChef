@@ -26,6 +26,12 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    repositories {
+        maven {
+            url "https://mint.splunk.com/gradle/"
+
+        }
+    }
 }
 
 dependencies {
@@ -60,7 +66,22 @@ dependencies {
 
     /**/
     implementation 'com.google.android.libraries.places:places:2.4.0'
+    /**/
+    implementation 'com.splunk.mint:mint:5.0.0'
+    /*goole login*/
+    implementation 'com.google.android.gms:play-services-auth:19.0.0'
+    implementation 'com.facebook.android:facebook-login:[5,6)'
+    implementation 'com.google.firebase:firebase-auth:20.0.4'
 
-
+    /*retrofit*/
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    implementation('com.squareup.retrofit2:retrofit:2.1.0') {
+        // exclude Retrofit’s OkHttp dependency module and define your own module import
+        exclude module: 'okhttp'
+    }
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
 
 }

@@ -9,6 +9,7 @@ import android.os.Handler;
 import com.ichef.android.MainActivity;
 import com.ichef.android.R;
 import com.ichef.android.utils.Prefrence;
+import com.splunk.mint.Mint;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -20,7 +21,7 @@ public class SplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
-      //  Mint.initAndStartSession(this, "a80e4c62");
+        Mint.initAndStartSession(SplashScreen.this, "0d3969b2");
 
         handler=new Handler();
         handler.postDelayed(new Runnable() {
