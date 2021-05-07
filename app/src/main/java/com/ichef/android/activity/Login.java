@@ -2,24 +2,17 @@ package com.ichef.android.activity;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.AnimationUtils;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,13 +24,23 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 import com.hbb20.CountryCodePicker;
-import com.ichef.android.MainActivity;
 import com.ichef.android.R;
+import com.ichef.android.requestmodel.LoginRequest;
+import com.ichef.android.responsemodel.login.LoginResponse;
+import com.ichef.android.retrofit.APIInterface;
+import com.ichef.android.retrofit.ApiClient;
+import com.ichef.android.utils.Prefrence;
+import com.ichef.android.utils.TransparentProgressDialog;
 
-import java.util.Locale;
+import java.util.HashMap;
+import java.util.Map;
+
+import retrofit2.Call;
+import retrofit2.Callback;
 
 public class Login extends AppCompatActivity {
 
+    TransparentProgressDialog dialog;
     private static final int RC_SIGN_IN = 007;
     private static final String TAG = "Hello";
     TextView blank,login,signup,otp,signupnext;
@@ -60,6 +63,9 @@ public class Login extends AppCompatActivity {
     private String glastname;
     private String gname;
     private String gfullname;
+
+    String mobile,email,password;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -190,7 +196,14 @@ public class Login extends AppCompatActivity {
         });
     }
     private void onclick() {
-
+        sendotpbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signin();
+                dialog=new TransparentProgressDialog(Login.this);
+                dialog.show();
+            }
+        });
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -203,6 +216,7 @@ public class Login extends AppCompatActivity {
                 login.setText("LOGIN");
                 lllogin.setVisibility(View.VISIBLE);
                 llsignup.setVisibility(View.GONE);
+
 
             }
         });
@@ -234,6 +248,7 @@ public class Login extends AppCompatActivity {
                 llsignup.setVisibility(View.VISIBLE);
             }
         });
+/*
         otp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -242,6 +257,7 @@ public class Login extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+*/
         fb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -306,7 +322,6 @@ public class Login extends AppCompatActivity {
                 servers="1";
             }
         });
-
         phoneno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -317,35 +332,67 @@ public class Login extends AppCompatActivity {
         }
         );
 
-/*
-        phoneno.addTextChangedListener(new TextWatcher() {
+    }
+
+   /* private void signin() {
+        LoginRequest loginRequest = new LoginRequest();
+        loginRequest.setEmail("psr@gmail.com");
+        loginRequest.setMobileNumber("+918319079223");
+        loginRequest.setPassword("psr24@psr24@");
+
+    }*/
+    
+
+
+    private void signin() {
+
+        /*Map<String, String> map = new HashMap<>();
+        map.put("mobile_number", "+918319079223");
+        map.put("password", "psr24@psr24@");
+        map.put("email", "psr@gmail.com");*/
+        LoginRequest loginRequest = new LoginRequest();
+        loginRequest.setEmail("psr@gmail.com");
+        loginRequest.setMobileNumber("+918319079223");
+        loginRequest.setPassword("psr24@psr24@");
+
+        APIInterface apiInterface = ApiClient.getClient().create(APIInterface.class);
+        Call<LoginResponse> resultCall = apiInterface.CallLogin(loginRequest);
+        resultCall.enqueue(new Callback<LoginResponse>() {
 
             @Override
-            public void afterTextChanged(Editable arg0) {
-                // TODO Auto-generated method stub
-                text = phoneno.getText().toString().toLowerCase(Locale.getDefault());
-                if(validation()){
-                    phoneno.setBackgroundResource(R.color.green);
+            public void onResponse(Call<LoginResponse> call, retrofit2.Response<LoginResponse> response) {
+
+                if (response.body().getStatus().equals(true)) {
+
+                   // dialog.dismiss();
+                    Toast.makeText(Login.this, "uyvkj"+response.body().getMessage() , Toast.LENGTH_SHORT).show();
+
+                    Prefrence.save(Login.this, Prefrence.KEY_USER_ID, response.body().getParam().getId());
+                    Prefrence.save(Login.this, Prefrence.KEY_MOBILE_NO, response.body().getParam().getMobileNumber());
+                    Prefrence.save(Login.this, Prefrence.KEY_EMAIL_ID, response.body().getParam().getEmail());
+                    Prefrence.save(Login.this, Prefrence.KEY_FIRST_NAME, response.body().getParam().getFirstname());
+                    Prefrence.save(Login.this, Prefrence.KEY_USERTYPE, response.body().getParam().getUserType());
+
+                    String usertype=response.body().getParam().getUserType();
+                    Intent in = new Intent(Login.this, HomePageActivity.class);
+                    startActivity(in);
+                    finish();
+                } else {
+                    dialog.dismiss();
+                    Toast.makeText(Login.this, "please try again"+response, Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
-            public void beforeTextChanged(CharSequence arg0, int arg1,
-                                          int arg2, int arg3) {
-                // TODO Auto-generated method stub
-                text = phoneno.getText().toString().toLowerCase(Locale.getDefault());
-                if(validation()){
-                    phoneno.setBackgroundResource(R.color.green);
-                }
-                text = phoneno.getText().toString().toLowerCase(Locale.getDefault());
-                if(validation()){
-                    phoneno.setBackgroundResource(R.color.green);
-                }
-
+            public void onFailure(Call<LoginResponse> call, Throwable t) {
+                dialog.dismiss();
+                Toast.makeText(Login.this, "Please check your Internet Connection", Toast.LENGTH_SHORT).show();
             }
         });
-*/
+
     }
+
+
 
     private boolean validation() {
         boolean flag = true;
@@ -383,5 +430,6 @@ public class Login extends AppCompatActivity {
         user= findViewById(R.id.imuser);
         server= findViewById(R.id.imserver);
         llnext= findViewById(R.id.llnext);
+
     }
 }

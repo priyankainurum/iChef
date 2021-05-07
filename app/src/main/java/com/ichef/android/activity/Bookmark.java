@@ -71,7 +71,7 @@ public class Bookmark extends AppCompatActivity {
         dialog.show();    }
 
     private void getlist() {
-        username= Prefrence.get(Bookmark.this, Prefrence.KEY_MANAGER_ID);
+       // username= Prefrence.get(Bookmark.this, Prefrence.KEY_MANAGER_ID);
         Map<String, String> map = new HashMap<>();
         map.put("manager_id", "48");
 

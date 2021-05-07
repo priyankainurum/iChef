@@ -21,8 +21,6 @@
         android:layout_gravity="center"
         android:contentDescription="TODO"
         android:src="@drawable/logo" />
-
-
 <!--
     <pl.droidsonroids.gif.GifImageView
         android:layout_width="@dimen/_150sdp"

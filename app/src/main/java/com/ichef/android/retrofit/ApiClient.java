@@ -38,7 +38,8 @@ public class ApiClient {
                 .build();
 
         retrofit = new Retrofit.Builder()
-                .baseUrl("http://139.59.86.31/time-it/index.php/mobileapi/")
+               // .baseUrl("http://139.59.86.31/time-it/index.php/mobileapi/")
+                .baseUrl("http://ichefproj.herokuapp.com")
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();

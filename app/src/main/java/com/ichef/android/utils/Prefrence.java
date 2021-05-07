@@ -9,12 +9,13 @@ public class Prefrence {
     public static  String KEY_FIRST_NAME = "FirstName";
     public static  String KEY_LAST_NAME = "lastName";
     public static  String KEY_PASSWORD = "pass";
-    public static  String KEY_ROLEID = "roleid";
+    public static  String KEY_USERTYPE = "usertype";
     public static  String KEY_EMAIL_ID = "email";
+    public static  String KEY_MANAGER_ID = "pass";
     public static SharedPreferences sp;
 
     public static String KEY_USER_ID = "key_user_id";
-    public static String KEY_MANAGER_ID = "key_manager_id";
+    public static String KEY_MOBILE_NO = "key_mobile";
     public static String KEY_STATE_ID = "state_id";
     public static String KEY_IS_INTRO = "key_intro";
     public static String KEY_TOKEN = "KEY_TOKEN";
