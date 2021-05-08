@@ -3,9 +3,11 @@ package com.ichef.android.retrofit;
 
 
 import com.ichef.android.requestmodel.LoginRequest;
+import com.ichef.android.requestmodel.OTPRequest;
 import com.ichef.android.requestmodel.SignupRequest;
 import com.ichef.android.responsemodel.homefood.DriverListResponse;
 import com.ichef.android.responsemodel.login.LoginResponse;
+import com.ichef.android.responsemodel.otprequest.OTPResponse;
 import com.ichef.android.responsemodel.signup.SignupResponse;
 
 import java.util.Map;
@@ -30,6 +32,10 @@ public interface APIInterface {
     @Headers("Content-Type: application/json")
     @POST("/user/personal/signup")
     Call<SignupResponse> CallSignup(@Body SignupRequest signupRequest);
+
+    @Headers("Content-Type: application/json")
+    @POST("/user/verify")
+    Call<OTPResponse> CallOtp(@Body OTPRequest otpRequest);
 
   /* @POST("adduser")
    @FormUrlEncoded

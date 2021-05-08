@@ -45,7 +45,6 @@ public class PersonalDetail extends AppCompatActivity {
         });
         init();
         onclick();
-
     }
 
     private void onclick() {
@@ -58,10 +57,8 @@ public class PersonalDetail extends AppCompatActivity {
                     startActivity(intent);*/
                     userSignUp();
                 }
-
             }
         });
-
     }
 
     private void userSignUp() {
@@ -86,10 +83,12 @@ public class PersonalDetail extends AppCompatActivity {
 
                 if (response.body().getStatus().equals(true)) {
 
-                    Toast.makeText(PersonalDetail.this, ""+response.body().getMessage()+" Your id is - "+response.body().getParam().getId() , Toast.LENGTH_SHORT).show();
-                    Toast.makeText(PersonalDetail.this,  "Your OTP - "+response.body().getParam().getOtp(), Toast.LENGTH_LONG).show();
+                   // Toast.makeText(PersonalDetail.this, ""+response.body().getMessage()+" Your id is - "+response.body().getParam().getId() , Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PersonalDetail.this,  "Your OTP - "+response.body().getParam().getOtp(), Toast.LENGTH_SHORT).show();
 
-                    Intent intent = new Intent(PersonalDetail.this, Login.class);
+                    Intent intent = new Intent(PersonalDetail.this, Otp.class);
+                    intent.putExtra("otp",response.body().getParam().getOtp());
+                    intent.putExtra("id",response.body().getParam().getId());
                     startActivity(intent);
                     finish();
                 } else {

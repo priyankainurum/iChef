@@ -8,8 +8,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.ichef.android.R;
@@ -18,7 +22,7 @@ import com.ichef.android.utils.CommonUtility;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class AddNewItem extends AppCompatActivity {
+public class AddNewItem extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     ImageView upload_file1,upload_file2,upload_file3,upload_file4;
     String imgClick ="";
     private int REQUEST_CAMERA = 0, SELECT_FILE = 1;
@@ -28,6 +32,16 @@ public class AddNewItem extends AppCompatActivity {
     RadioButton rd1,rd2,rd3;
     TextView sun,mon,tue,wed,thu,fri,sat;
     String ssun="0",smon="0",stue="0",swed="0",sthu="0",sfri="1",ssat="1";
+    EditText etitemname,etdescribe;
+    String[] rawmaterial = { "Rice1", "Rice2", "Rice3", "Rice4", "Rice5"};
+    String[] tastedish = { "Spicy", "Sweet", "Spicy", "Spicy", "Spicy"};
+    String[] regionn = { "Indian", "Chinese", "Italian", "South Indian" };
+    String[] timeeat = { "Dinner", "Breakfast", "Lunch", "Snacks"};
+    String[] timestart = { "0", "1", "2", "3","4", "4", "5", "6","7", "8", "9", "10","11", "12"};
+    String[] meaureunit = { "Grams", "KiloGrams"};
+    String[] unit = { "Grams", "KiloGrams"};
+    String[] pricing = { "0", "10", "20", "30","40", "40", "50", "60","70", "80", "90", "100"};
+    Spinner spinner_raw,spin_taste,spin_region,spin_timeeat,spin_timestart,spin_timeend,spin_measureunit,spin_unit,spin_pricing;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,10 +58,72 @@ public class AddNewItem extends AppCompatActivity {
         onlclick();
     }
     private void init() {
+        spinner_raw = findViewById(R.id.spinner_raw);
+        spinner_raw.setOnItemSelectedListener(this);
+        ArrayAdapter aa = new ArrayAdapter(AddNewItem.this,android.R.layout.simple_spinner_item,rawmaterial);
+        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner_raw.setAdapter(aa);
+        spinner_raw.setSelection(0);
+        /**/
+        spin_taste = findViewById(R.id.spinner_tastedish);
+        spin_taste.setOnItemSelectedListener(this);
+        ArrayAdapter aa2 = new ArrayAdapter(AddNewItem.this,android.R.layout.simple_spinner_item,tastedish);
+        aa2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spin_taste.setAdapter(aa2);
+        spin_taste.setSelection(0);
+        /**/
+        spin_region = findViewById(R.id.spinner_region);
+        spin_region.setOnItemSelectedListener(this);
+        ArrayAdapter aa3 = new ArrayAdapter(AddNewItem.this,android.R.layout.simple_spinner_item,regionn);
+        aa3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spin_region.setAdapter(aa3);
+        spin_region.setSelection(0);
+        /**/
+        spin_timeeat = findViewById(R.id.spinner_timeeat);
+        spin_timeeat.setOnItemSelectedListener(this);
+        ArrayAdapter aa4 = new ArrayAdapter(AddNewItem.this,android.R.layout.simple_spinner_item,timeeat);
+        aa4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spin_timeeat.setAdapter(aa4);
+        spin_timeeat.setSelection(0);
+        /**/
+        spin_timestart = findViewById(R.id.spinner_timestart);
+        spin_timestart.setOnItemSelectedListener(this);
+        ArrayAdapter aa5 = new ArrayAdapter(AddNewItem.this,android.R.layout.simple_spinner_item,timestart);
+        aa5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spin_timestart.setAdapter(aa5);
+        spin_timestart.setSelection(0);
+        /**/
+        spin_timeend = findViewById(R.id.spinner_timeend);
+        spin_timeend.setOnItemSelectedListener(this);
+        ArrayAdapter aa6 = new ArrayAdapter(AddNewItem.this,android.R.layout.simple_spinner_item,timestart);
+        aa6.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spin_timeend.setAdapter(aa6);
+        spin_timeend.setSelection(0);
+        /**/
+        spin_measureunit = findViewById(R.id.spinner_measurunit);
+        spin_measureunit.setOnItemSelectedListener(this);
+        ArrayAdapter aa7 = new ArrayAdapter(AddNewItem.this,android.R.layout.simple_spinner_item,meaureunit);
+        aa7.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spin_measureunit.setAdapter(aa7);
+        spin_measureunit.setSelection(0);
+        /**/
+        spin_unit = findViewById(R.id.spinner_unit);
+        spin_unit.setOnItemSelectedListener(this);
+        ArrayAdapter aa8 = new ArrayAdapter(AddNewItem.this,android.R.layout.simple_spinner_item,unit);
+        aa8.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spin_unit.setAdapter(aa8);
+        spin_unit.setSelection(0);
+        /**/
+        spin_pricing = findViewById(R.id.spinner_pricing);
+        spin_pricing.setOnItemSelectedListener(this);
+        ArrayAdapter aa9 = new ArrayAdapter(AddNewItem.this,android.R.layout.simple_spinner_item,pricing);
+        aa9.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spin_pricing.setAdapter(aa9);
+        spin_pricing.setSelection(0);
+
         rd1 = findViewById(R.id.rd1);
         rd2 = findViewById(R.id.rd2);
         rd3 = findViewById(R.id.rd3);
-
         sun = findViewById(R.id.sun);
         mon = findViewById(R.id.mon);
         tue = findViewById(R.id.tue);
@@ -61,6 +137,8 @@ public class AddNewItem extends AppCompatActivity {
         upload_file2=(ImageView) findViewById(R.id.upload2);
         upload_file3=(ImageView) findViewById(R.id.upload3);
         upload_file4=(ImageView) findViewById(R.id.upload4);
+
+
     }
 
     private void onlclick() {
@@ -330,4 +408,13 @@ public class AddNewItem extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
 }
