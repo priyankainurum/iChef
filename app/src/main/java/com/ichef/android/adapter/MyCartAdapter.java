@@ -11,7 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.ichef.android.R;
 import com.ichef.android.activity.FoodDetail;
-import com.ichef.android.responsemodel.homefood.Result;
+import com.ichef.android.responsemodel.fetchcart.Result;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,10 +47,10 @@ public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.ViewHolder
 public void onBindViewHolder(ViewHolder holder, int position) {
 
     // holder.drivername.setText(mlist.get(position).getFirstName()+" "+mlist.get(position).getLastName());
-     holder.name.setText("Name of Food item");
-     holder.more.setText("More detail about order");
-     holder.amount.setText("N150.00");
-     id =mlist.get(position).getIdUserPK();
+     holder.name.setText(mlist.get(position).getFoodItemID());
+     holder.more.setText(mlist.get(position).getDiningTime());
+     holder.amount.setText(mlist.get(position).getPrice());
+     id =mlist.get(position).getId();
 
     holder.itemView.setOnClickListener(new View.OnClickListener() {
         @Override
@@ -67,24 +68,6 @@ public void onBindViewHolder(ViewHolder holder, int position) {
         return mlist.size();
     }
 
-    public void filter(String charText) {
-        charText = charText.toLowerCase(Locale.getDefault());
-        mlist.clear();
-        if (charText.length() == 0) {
-            mlist.addAll(slist);
-        }
-        else
-        {
-            for (Result wp : slist)
-            {
-                if (wp.getFirstName().toLowerCase(Locale.getDefault()).contains(charText))
-                {
-                    mlist.add(wp);
-                }
-            }
-        }
-        notifyDataSetChanged();
-    }
 
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

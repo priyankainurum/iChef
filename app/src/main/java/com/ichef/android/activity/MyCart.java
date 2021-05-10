@@ -17,8 +17,9 @@ import android.widget.Toast;
 import com.ichef.android.R;
 import com.ichef.android.adapter.HomeFoodAdapter;
 import com.ichef.android.adapter.MyCartAdapter;
+import com.ichef.android.responsemodel.fetchcart.FetchCartResponse;
+import com.ichef.android.responsemodel.fetchcart.Result;
 import com.ichef.android.responsemodel.homefood.DriverListResponse;
-import com.ichef.android.responsemodel.homefood.Result;
 import com.ichef.android.retrofit.APIInterface;
 import com.ichef.android.retrofit.ApiClient;
 import com.ichef.android.utils.Prefrence;
@@ -41,7 +42,7 @@ public class MyCart extends AppCompatActivity {
     MyCartAdapter rv_MyProjectAdapter;
     TransparentProgressDialog dialog;
     RecyclerView.LayoutManager rv_MyProjectLayoutManager;
-    List<Result> mListData = new ArrayList<>();
+    List<com.ichef.android.responsemodel.fetchcart.Result> mListData = new ArrayList<>();
     TextView ten,twenty,thirty,tip;
     RelativeLayout checkout;
     @Override
@@ -85,15 +86,15 @@ public class MyCart extends AppCompatActivity {
     }
 
     private void getlist() {
-        username= Prefrence.get(MyCart.this, Prefrence.KEY_MANAGER_ID);
+     /*   username= Prefrence.get(MyCart.this, Prefrence.KEY_MANAGER_ID);
         Map<String, String> map = new HashMap<>();
-        map.put("manager_id", "48");
+        map.put("manager_id", "48");*/
 
         apiInterface = ApiClient.getClient().create(APIInterface.class);
-        Call<DriverListResponse> call = apiInterface.getdriverlist(map);
-        call.enqueue(new Callback<DriverListResponse>() {
+        Call<FetchCartResponse> call = apiInterface.Getcart();
+        call.enqueue(new Callback<FetchCartResponse>() {
             @Override
-            public void onResponse(Call<DriverListResponse> call, Response<DriverListResponse> response)
+            public void onResponse(Call<FetchCartResponse> call, Response<FetchCartResponse> response)
             {
                 if (response.body().getStatus()) {
                     dialog.dismiss();
@@ -106,7 +107,7 @@ public class MyCart extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<DriverListResponse> call, Throwable t) {
+            public void onFailure(Call<FetchCartResponse> call, Throwable t) {
 
                 dialog.dismiss();
                 call.cancel();

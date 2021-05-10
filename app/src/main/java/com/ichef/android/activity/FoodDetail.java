@@ -24,8 +24,12 @@ import android.widget.Toast;
 import com.ichef.android.R;
 import com.ichef.android.adapter.MyCartAdapter;
 import com.ichef.android.adapter.ReviewAdapter;
+import com.ichef.android.requestmodel.SignupRequest;
+import com.ichef.android.requestmodel.addtocartrequest.AddtoCartRequest;
+import com.ichef.android.responsemodel.addtocartresponse.AddtoCartResponse;
 import com.ichef.android.responsemodel.homefood.DriverListResponse;
 import com.ichef.android.responsemodel.homefood.Result;
+import com.ichef.android.responsemodel.signup.SignupResponse;
 import com.ichef.android.retrofit.APIInterface;
 import com.ichef.android.retrofit.ApiClient;
 import com.ichef.android.utils.Prefrence;
@@ -200,8 +204,9 @@ public class FoodDetail extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 v.startAnimation(AnimationUtils.loadAnimation(FoodDetail.this, R.anim.image_click));
-                Intent intent = new Intent(FoodDetail.this, MyCart.class);
-                startActivity(intent);
+             /*   Intent intent = new Intent(FoodDetail.this, MyCart.class);
+                startActivity(intent);*/
+                addtocartt();
 
             }
         });
@@ -312,6 +317,46 @@ public class FoodDetail extends AppCompatActivity {
 
     }
 
+    private void addtocartt() {
+
+        AddtoCartRequest request = new AddtoCartRequest();
+        /*request.setEmail("psrr@gmail.com");
+        request.setMobileNumber("+918319079228");
+        request.setPassword("psr24@psr24@");
+        request.setName("Priyanka");*/
+        request.setUserID("60882de62fb1f752c8069701");
+        request.setFoodItemID("60857625c9107863c4ef683e");
+        request.setDiningTime("2021-05-03 10:48:30");
+        request.setPrice("5000");
+        request.setRestaurantId("6089370372c9741abcd3ed3c");
+        request.setType("dinning");
+
+
+        APIInterface apiInterface = ApiClient.getClient().create(APIInterface.class);
+        Call<AddtoCartResponse> resultCall = apiInterface.Calladdtocart(request);
+        resultCall.enqueue(new Callback<AddtoCartResponse>() {
+
+            @Override
+            public void onResponse(Call<AddtoCartResponse> call, retrofit2.Response<AddtoCartResponse> response) {
+                if (response.body().getStatus().equals(true)) {
+
+                    Toast.makeText(FoodDetail.this,  ""+response.body().getMessage(), Toast.LENGTH_SHORT).show();
+/*
+                    Intent intent = new Intent(FoodDetail.this, MyCart.class);
+                    startActivity(intent);*/
+                } else {
+                    Toast.makeText(FoodDetail.this, "please try again", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<AddtoCartResponse> call, Throwable t) {
+                Toast.makeText(FoodDetail.this, "Please check your Internet Connection", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+
     private void init() {
         dialogmode=findViewById(R.id.dialogmode);
         dialogtime=findViewById(R.id.dialogtime);
@@ -319,7 +364,7 @@ public class FoodDetail extends AppCompatActivity {
         rltiming=findViewById(R.id.rltiming);
 
         addtocart=findViewById(R.id.rlcart);
-        buynow=findViewById(R.id.rlbutnow);
+        buynow=findViewById(R.id.rlbuynow);
         bikeblack = findViewById(R.id.bikeblack);
         diningblack = findViewById(R.id.diningblack);
         reviewblack = findViewById(R.id.ratingblack);
@@ -336,6 +381,8 @@ public class FoodDetail extends AppCompatActivity {
         btndelivery = findViewById(R.id.delivery);
         btndining = findViewById(R.id.dining);
         btnreview = findViewById(R.id.review);
+
+
 
         rv_MyProjectList = findViewById(R.id.rvreview);
         rv_MyProjectList.setHasFixedSize(true);

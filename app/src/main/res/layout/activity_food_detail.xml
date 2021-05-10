@@ -791,7 +791,6 @@
                     android:paddingLeft="@dimen/_10sdp"
                     android:gravity="center"
                     android:layout_marginLeft="@dimen/_5sdp"
-
                     android:textColor="@color/white"
                     android:textSize="15dp"/>
 
@@ -809,7 +808,7 @@
 
             </RelativeLayout>
             <RelativeLayout
-                android:id="@+id/rlbutnow"
+                android:id="@+id/rlbuynow"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_width="@dimen/_120sdp"
@@ -835,7 +834,7 @@
                 <ImageView
                     android:layout_alignParentRight="true"
                     android:layout_toRightOf="@id/txbuy"
-                    android:id="@+id/buynow"
+
                     android:layout_width="@dimen/_25sdp"
                     android:layout_height="@dimen/_35sdp"
                     android:src="@drawable/cartfill"
