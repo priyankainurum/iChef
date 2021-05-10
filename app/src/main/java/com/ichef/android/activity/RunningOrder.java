@@ -18,6 +18,7 @@ import com.ichef.android.responsemodel.homefood.DriverListResponse;
 import com.ichef.android.responsemodel.homefood.Result;
 import com.ichef.android.retrofit.APIInterface;
 import com.ichef.android.retrofit.ApiClient;
+import com.ichef.android.retrofit.ApiClientTest;
 import com.ichef.android.utils.Prefrence;
 import com.ichef.android.utils.TransparentProgressDialog;
 
@@ -66,7 +67,7 @@ public class RunningOrder extends AppCompatActivity {
         Map<String, String> map = new HashMap<>();
         map.put("manager_id", "48");
 
-        apiInterface = ApiClient.getClient().create(APIInterface.class);
+        apiInterface = ApiClientTest.getClient().create(APIInterface.class);
         Call<DriverListResponse> call = apiInterface.getdriverlist(map);
         call.enqueue(new Callback<DriverListResponse>() {
             @Override

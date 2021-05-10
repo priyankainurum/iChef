@@ -54,9 +54,9 @@ public class PersonalDetail extends AppCompatActivity {
             public void onClick(View v) {
                 if(validation()) {
                     v.startAnimation(AnimationUtils.loadAnimation(PersonalDetail.this, R.anim.image_click));
-                   /* Intent intent = new Intent(PersonalDetail.this, NiceToMeetYou.class);
-                    startActivity(intent);*/
-                    userSignUp();
+                    Intent intent = new Intent(PersonalDetail.this, NiceToMeetYou.class);
+                    startActivity(intent);
+                  //  userSignUp();
                 }
             }
         });

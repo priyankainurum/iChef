@@ -12,6 +12,7 @@ import com.ichef.android.responsemodel.getproductbyid.GetProductResponse;
 import com.ichef.android.responsemodel.homefood.DriverListResponse;
 import com.ichef.android.responsemodel.login.LoginResponse;
 import com.ichef.android.responsemodel.otprequest.OTPResponse;
+import com.ichef.android.responsemodel.productlist.ProductListResponse;
 import com.ichef.android.responsemodel.signup.SignupResponse;
 
 import java.util.Map;
@@ -47,12 +48,16 @@ public interface APIInterface {
     Call<AddtoCartResponse> Calladdtocart(@Body AddtoCartRequest addtoCartRequest);
 
     @GET("/product/fetchCart")
-    @FormUrlEncoded
     Call<FetchCartResponse> Getcart();
 
-    @GET("/product/") //60966c59c1efc7002291fad0
+
+   /* @GET("/product/") //60966c59c1efc7002291fad0
     @FormUrlEncoded
-    Call<GetProductResponse> GetProduct();
+    Call<GetProductResponse> GetProduct();*/
+
+    @POST("/product?page=0&limit=4&sort=datecreated&direction=desc")
+    @FormUrlEncoded
+    Call<ProductListResponse> CallProductList(@FieldMap Map<String,String> params);
 
   /* @POST("adduser")
    @FormUrlEncoded
@@ -60,7 +65,15 @@ public interface APIInterface {
 
     @POST("login")
     @FormUrlEncoded
-    Call<LoginResponse> CallLogin(@FieldMap Map<String, String> params);*/
+    Call<LoginResponse> CallLogin(@FieldMap Map<String, String> params);
+
+     @POST("editproduct")
+    @Multipart
+    Call<EditProductResponse> EditProduct(@PartMap Map<String, RequestBody> params, @Part MultipartBody.Part filePart1,
+                                          @Part MultipartBody.Part filePart2);
+
+
+    */
 
 
 }

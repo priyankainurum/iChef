@@ -15,14 +15,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ichef.android.R;
-import com.ichef.android.adapter.HomeFoodAdapter;
+
 import com.ichef.android.adapter.MyCartAdapter;
 import com.ichef.android.responsemodel.fetchcart.FetchCartResponse;
 import com.ichef.android.responsemodel.fetchcart.Result;
-import com.ichef.android.responsemodel.homefood.DriverListResponse;
 import com.ichef.android.retrofit.APIInterface;
 import com.ichef.android.retrofit.ApiClient;
-import com.ichef.android.utils.Prefrence;
 import com.ichef.android.utils.TransparentProgressDialog;
 
 import java.util.ArrayList;
@@ -90,18 +88,21 @@ public class MyCart extends AppCompatActivity {
         Map<String, String> map = new HashMap<>();
         map.put("manager_id", "48");*/
 
-        apiInterface = ApiClient.getClient().create(APIInterface.class);
+        /*apiInterface = ApiClient.getClient().create(APIInterface.class);
+        Call<FetchCartResponse> call = apiInterface.Getcart();*/
+        APIInterface apiInterface = ApiClient.getClient().create(APIInterface.class);
         Call<FetchCartResponse> call = apiInterface.Getcart();
         call.enqueue(new Callback<FetchCartResponse>() {
             @Override
             public void onResponse(Call<FetchCartResponse> call, Response<FetchCartResponse> response)
             {
+                Toast.makeText(MyCart.this, "Hello"+response, Toast.LENGTH_SHORT).show();
                 if (response.body().getStatus()) {
-                    dialog.dismiss();
+                  //  dialog.dismiss();
                     mListData = response.body().getResult();
                     setProduct();
                 } else {
-                    dialog.dismiss();
+                   // dialog.dismiss();
                     Toast.makeText(MyCart.this, "No Data Get", Toast.LENGTH_SHORT).show();
                 }
             }

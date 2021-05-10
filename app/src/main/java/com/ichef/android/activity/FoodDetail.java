@@ -32,6 +32,7 @@ import com.ichef.android.responsemodel.homefood.Result;
 import com.ichef.android.responsemodel.signup.SignupResponse;
 import com.ichef.android.retrofit.APIInterface;
 import com.ichef.android.retrofit.ApiClient;
+import com.ichef.android.retrofit.ApiClientTest;
 import com.ichef.android.utils.Prefrence;
 import com.ichef.android.utils.TransparentProgressDialog;
 
@@ -338,6 +339,8 @@ public class FoodDetail extends AppCompatActivity {
 
             @Override
             public void onResponse(Call<AddtoCartResponse> call, retrofit2.Response<AddtoCartResponse> response) {
+                Toast.makeText(FoodDetail.this, "Hello"+response, Toast.LENGTH_SHORT).show();
+
                 if (response.body().getStatus().equals(true)) {
 
                     Toast.makeText(FoodDetail.this,  ""+response.body().getMessage(), Toast.LENGTH_SHORT).show();
@@ -383,7 +386,6 @@ public class FoodDetail extends AppCompatActivity {
         btnreview = findViewById(R.id.review);
 
 
-
         rv_MyProjectList = findViewById(R.id.rvreview);
         rv_MyProjectList.setHasFixedSize(true);
         rv_MyProjectLayoutManager = new LinearLayoutManager(FoodDetail.this);
@@ -398,7 +400,7 @@ public class FoodDetail extends AppCompatActivity {
         Map<String, String> map = new HashMap<>();
         map.put("manager_id", "48");
 
-        apiInterface = ApiClient.getClient().create(APIInterface.class);
+        apiInterface = ApiClientTest.getClient().create(APIInterface.class);
         Call<DriverListResponse> call = apiInterface.getdriverlist(map);
         call.enqueue(new Callback<DriverListResponse>() {
             @Override
