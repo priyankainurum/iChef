@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -15,12 +16,23 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ichef.android.R;
+import com.ichef.android.requestmodel.AddNewPd.AddNewItemRequest;
+import com.ichef.android.responsemodel.addnewproduct.AddNewProductResponse;
+import com.ichef.android.responsemodel.addnewproduct.Photo;
+import com.ichef.android.responsemodel.addnewproduct.UnitPrice;
+import com.ichef.android.retrofit.APIInterface;
+import com.ichef.android.retrofit.ApiClient;
 import com.ichef.android.utils.CommonUtility;
+import com.ichef.android.utils.Prefrence;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+
+import retrofit2.Call;
+import retrofit2.Callback;
 
 public class AddNewItem extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     ImageView upload_file1,upload_file2,upload_file3,upload_file4;
@@ -42,7 +54,9 @@ public class AddNewItem extends AppCompatActivity implements AdapterView.OnItemS
     String[] unit = { "Grams", "KiloGrams"};
     String[] pricing = { "0", "10", "20", "30","40", "40", "50", "60","70", "80", "90", "100"};
     Spinner spinner_raw,spin_taste,spin_region,spin_timeeat,spin_timestart,spin_timeend,spin_measureunit,spin_unit,spin_pricing;
-
+    String token;
+    TextView submitbtn;
+    EditText itemname,discription;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +72,11 @@ public class AddNewItem extends AppCompatActivity implements AdapterView.OnItemS
         onlclick();
     }
     private void init() {
+        submitbtn= findViewById(R.id.submitbtn);
+        itemname= findViewById(R.id.etitemname);
+        discription= findViewById(R.id.etdescribe);
+
+
         spinner_raw = findViewById(R.id.spinner_raw);
         spinner_raw.setOnItemSelectedListener(this);
         ArrayAdapter aa = new ArrayAdapter(AddNewItem.this,android.R.layout.simple_spinner_item,rawmaterial);
@@ -251,7 +270,6 @@ public class AddNewItem extends AppCompatActivity implements AdapterView.OnItemS
             }
         });
 
-
         upload_file1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -285,7 +303,72 @@ public class AddNewItem extends AppCompatActivity implements AdapterView.OnItemS
             }
         });
 
+        submitbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                v.startAnimation(AnimationUtils.loadAnimation(AddNewItem.this, R.anim.image_click));
+                additem();
+            }
+        });
+
+
+
+
     }
+
+    private void additem() {
+        token= Prefrence.get(AddNewItem.this, Prefrence.KEY_TOKEN);
+        String fname= itemname.getText().toString();
+        String sdiscription= discription.getText().toString();
+        AddNewItemRequest request = new AddNewItemRequest();
+        Photo photo = new Photo();
+        UnitPrice unitPrice = new UnitPrice();
+        request.setCatId("1");
+        request.setDescription(sdiscription);
+        request.setEatTime("break fast");
+        request.setFoodItemName(fname);
+        request.setRawMaterial("Raw material sample");
+        request.setRegion("India");
+        request.setStockQuantity(20);
+        request.setSubCatId("1");
+        request.setTaste("taste placeholder");
+        request.setType("eatable");
+        photo.setUrl("1029203933392.png");
+        unitPrice.setUnitName("Portion");
+        unitPrice.setPrice(100);
+
+       /* request.getPhotos().get(0).setUrl("1029203933392.png");
+        request.getPhotos().get(1).setUrl("1029203933392.png");
+        request.getPhotos().get(2).setUrl("1029203933392.png");
+        request.getPhotos().get(3).setUrl("1029203933392.png");
+
+        request.getUnitPrice().get(0).setUnitName("Portion");
+        request.getUnitPrice().get(1).setPrice(100);*/
+
+        APIInterface apiInterface = ApiClient.getClient().create(APIInterface.class);
+        Call<AddNewProductResponse> resultCall = apiInterface.CallAddProduct("Bearer " + token,request,photo,unitPrice);
+        resultCall.enqueue(new Callback<AddNewProductResponse>() {
+
+            @Override
+            public void onResponse(Call<AddNewProductResponse> call, retrofit2.Response<AddNewProductResponse> response) {
+
+                if (response.body().getStatus().equals(true)) {
+
+                    Toast.makeText(AddNewItem.this,  ""+response.body().getMessage(), Toast.LENGTH_SHORT).show();
+
+                } else {
+                    Toast.makeText(AddNewItem.this, "Error - "+response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<AddNewProductResponse> call, Throwable t) {
+                Toast.makeText(AddNewItem.this, "Please check your Internet Connection", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+
 
     private void selectImage() {
         final CharSequence[] items = { "Take Photo", "Choose from Library",

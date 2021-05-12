@@ -47,7 +47,7 @@ import retrofit2.Response;
 
 public class FoodDetail extends AppCompatActivity {
     APIInterface apiInterface;
-    String username;
+    String username,token;
     Spinner spinner;
     RecyclerView rv_MyProjectList;
     ReviewAdapter rv_MyProjectAdapter;
@@ -319,7 +319,7 @@ public class FoodDetail extends AppCompatActivity {
     }
 
     private void addtocartt() {
-
+        token= Prefrence.get(FoodDetail.this, Prefrence.KEY_TOKEN);
         AddtoCartRequest request = new AddtoCartRequest();
         /*request.setEmail("psrr@gmail.com");
         request.setMobileNumber("+918319079228");
@@ -334,12 +334,12 @@ public class FoodDetail extends AppCompatActivity {
 
 
         APIInterface apiInterface = ApiClient.getClient().create(APIInterface.class);
-        Call<AddtoCartResponse> resultCall = apiInterface.Calladdtocart(request);
+        Call<AddtoCartResponse> resultCall = apiInterface.Calladdtocart("Bearer " + token,request);
         resultCall.enqueue(new Callback<AddtoCartResponse>() {
 
             @Override
             public void onResponse(Call<AddtoCartResponse> call, retrofit2.Response<AddtoCartResponse> response) {
-                Toast.makeText(FoodDetail.this, "Hello"+response, Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(FoodDetail.this, "Hello"+response, Toast.LENGTH_SHORT).show();
 
                 if (response.body().getStatus().equals(true)) {
 

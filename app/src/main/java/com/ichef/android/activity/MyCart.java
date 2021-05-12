@@ -21,6 +21,7 @@ import com.ichef.android.responsemodel.fetchcart.FetchCartResponse;
 import com.ichef.android.responsemodel.fetchcart.Result;
 import com.ichef.android.retrofit.APIInterface;
 import com.ichef.android.retrofit.ApiClient;
+import com.ichef.android.utils.Prefrence;
 import com.ichef.android.utils.TransparentProgressDialog;
 
 import java.util.ArrayList;
@@ -31,10 +32,11 @@ import java.util.Map;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.http.Header;
 
 public class MyCart extends AppCompatActivity {
     APIInterface apiInterface;
-    String username;
+    String token;
     Spinner spinner;
     RecyclerView rv_MyProjectList;
     MyCartAdapter rv_MyProjectAdapter;
@@ -84,19 +86,16 @@ public class MyCart extends AppCompatActivity {
     }
 
     private void getlist() {
-     /*   username= Prefrence.get(MyCart.this, Prefrence.KEY_MANAGER_ID);
-        Map<String, String> map = new HashMap<>();
-        map.put("manager_id", "48");*/
 
-        /*apiInterface = ApiClient.getClient().create(APIInterface.class);
-        Call<FetchCartResponse> call = apiInterface.Getcart();*/
+        token= Prefrence.get(MyCart.this, Prefrence.KEY_TOKEN);
         APIInterface apiInterface = ApiClient.getClient().create(APIInterface.class);
-        Call<FetchCartResponse> call = apiInterface.Getcart();
+        Call<FetchCartResponse> call = apiInterface.Getcart("Bearer " + token);
         call.enqueue(new Callback<FetchCartResponse>() {
             @Override
             public void onResponse(Call<FetchCartResponse> call, Response<FetchCartResponse> response)
             {
-                Toast.makeText(MyCart.this, "Hello"+response, Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+                Toast.makeText(MyCart.this, "Hello PSR - "+response, Toast.LENGTH_SHORT).show();
                 if (response.body().getStatus()) {
                   //  dialog.dismiss();
                     mListData = response.body().getResult();

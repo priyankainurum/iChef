@@ -33,10 +33,14 @@ import com.ichef.android.utils.Prefrence;
 import com.ichef.android.utils.TransparentProgressDialog;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import okhttp3.Headers;
+import okhttp3.internal.http2.Header;
 import retrofit2.Call;
 import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Login extends AppCompatActivity {
 
@@ -357,16 +361,26 @@ public class Login extends AppCompatActivity {
 
         APIInterface apiInterface = ApiClient.getClient().create(APIInterface.class);
         Call<LoginResponse> resultCall = apiInterface.CallLogin(loginRequest);
+
         resultCall.enqueue(new Callback<LoginResponse>() {
 
+
             @Override
-            public void onResponse(Call<LoginResponse> call, retrofit2.Response<LoginResponse> response) {
+            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
 
                 if (response.body().getStatus().equals(true)) {
+                    dialog.dismiss();
+                    // get headers
+                    Headers headers = response.headers();
+                    // get header value
+                    String cookie = response.headers().get("Set-Cookie");
+                   // Toast.makeText(Login.this, ""+headers.get("Auth-Token"), Toast.LENGTH_SHORT).show();
+                    // TODO
 
-                   // dialog.dismiss();
-                    Toast.makeText(Login.this, "uyvkj"+response.body().getMessage() , Toast.LENGTH_SHORT).show();
 
+                    Toast.makeText(Login.this, ""+response.body().getMessage() , Toast.LENGTH_SHORT).show();
+
+                    Prefrence.save(Login.this, Prefrence.KEY_TOKEN, headers.get("Auth-Token"));
                     Prefrence.save(Login.this, Prefrence.KEY_USER_ID, response.body().getParam().getId());
                     Prefrence.save(Login.this, Prefrence.KEY_MOBILE_NO, response.body().getParam().getMobileNumber());
                     Prefrence.save(Login.this, Prefrence.KEY_EMAIL_ID, response.body().getParam().getEmail());

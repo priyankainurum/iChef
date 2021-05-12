@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.ichef.android.R;
 import com.ichef.android.adapter.CompletedOrderAdapter;
 import com.ichef.android.adapter.HomeFoodAdapter;
+import com.ichef.android.adapter.MyRestoAdapter;
 import com.ichef.android.adapter.NotificationAdapter;
 import com.ichef.android.adapter.OrdersAdapter;
 import com.ichef.android.responsemodel.homefood.DriverListResponse;
@@ -43,7 +44,7 @@ public class MyRestaurant extends AppCompatActivity {
     String username;
     Spinner spinner;
     RecyclerView rv_MyProjectList,rv_MyProjectList2,rv_MyProjectList3;
-    HomeFoodAdapter rv_MyProjectAdapter;
+    MyRestoAdapter rv_MyProjectAdapter;
     NotificationAdapter rv_MyProjectAdapter2;
     OrdersAdapter rv_MyProjectAdapter3;
     TransparentProgressDialog dialog;
@@ -395,7 +396,7 @@ public class MyRestaurant extends AppCompatActivity {
     }
     private void setProduct() {
         if (mListData != null && mListData.size() > 0) {
-            rv_MyProjectAdapter = new HomeFoodAdapter(MyRestaurant.this, (ArrayList<Result>) mListData);
+            rv_MyProjectAdapter = new MyRestoAdapter(MyRestaurant.this, (ArrayList<Result>) mListData);
             rv_MyProjectList.setAdapter(rv_MyProjectAdapter);
         }
 

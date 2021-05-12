@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ichef.android.R;
+import com.ichef.android.adapter.FavFoodAdapter;
 import com.ichef.android.adapter.HomeFoodAdapter;
 import com.ichef.android.responsemodel.homefood.DriverListResponse;
 import com.ichef.android.responsemodel.homefood.Result;
@@ -35,7 +36,7 @@ public class FavoritesOrder extends AppCompatActivity {
     String username;
     TextView spinner;
     RecyclerView rv_MyProjectList;
-    HomeFoodAdapter rv_MyProjectAdapter;
+    FavFoodAdapter rv_MyProjectAdapter;
     TransparentProgressDialog dialog;
     RecyclerView.LayoutManager rv_MyProjectLayoutManager;
     List<Result> mListData = new ArrayList<>();
@@ -103,7 +104,7 @@ public class FavoritesOrder extends AppCompatActivity {
 
     private void setProduct() {
         if (mListData != null && mListData.size() > 0) {
-            rv_MyProjectAdapter = new HomeFoodAdapter(FavoritesOrder.this, (ArrayList<Result>) mListData);
+            rv_MyProjectAdapter = new FavFoodAdapter(FavoritesOrder.this, (ArrayList<Result>) mListData);
             rv_MyProjectList.setAdapter(rv_MyProjectAdapter);
         }
 

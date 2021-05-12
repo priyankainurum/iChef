@@ -7,7 +7,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 @Generated("jsonschema2pojo")
-public class AddNewProductRequest {
+public class AddNewItemRequest {
 
     @SerializedName("foodItem_name")
     @Expose

@@ -23,6 +23,7 @@ public class Prefrence {
     public static String KEY_LONGITUDE = "KEY_LONGITUDE";
     public static String CITYNAME = "CITY";
 
+
     public static void save(Context context, String key, String value) {
         sp = context.getSharedPreferences(APP_PREF, 0);
         SharedPreferences.Editor edit = sp.edit();

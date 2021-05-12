@@ -12,9 +12,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ichef.android.R;
+import com.ichef.android.adapter.BookmarkAdapter;
 import com.ichef.android.adapter.HomeFoodAdapter;
+import com.ichef.android.responsemodel.bookmarklist.GetBookmarkListResponse;
+import com.ichef.android.responsemodel.bookmarklist.Result;
+import com.ichef.android.responsemodel.fetchcart.FetchCartResponse;
 import com.ichef.android.responsemodel.homefood.DriverListResponse;
-import com.ichef.android.responsemodel.homefood.Result;
 import com.ichef.android.retrofit.APIInterface;
 import com.ichef.android.retrofit.ApiClient;
 import com.ichef.android.retrofit.ApiClientTest;
@@ -32,10 +35,10 @@ import retrofit2.Response;
 
 public class Bookmark extends AppCompatActivity {
     APIInterface apiInterface;
-    String username;
+    String token;
     TextView spinner;
     RecyclerView rv_MyProjectList;
-    HomeFoodAdapter rv_MyProjectAdapter;
+    BookmarkAdapter rv_MyProjectAdapter;
     TransparentProgressDialog dialog;
     RecyclerView.LayoutManager rv_MyProjectLayoutManager;
     List<Result> mListData = new ArrayList<>();
@@ -72,28 +75,28 @@ public class Bookmark extends AppCompatActivity {
         dialog.show();    }
 
     private void getlist() {
-       // username= Prefrence.get(Bookmark.this, Prefrence.KEY_MANAGER_ID);
-        Map<String, String> map = new HashMap<>();
-        map.put("manager_id", "48");
 
-        apiInterface = ApiClientTest.getClient().create(APIInterface.class);
-        Call<DriverListResponse> call = apiInterface.getdriverlist(map);
-        call.enqueue(new Callback<DriverListResponse>() {
+        token= Prefrence.get(Bookmark.this, Prefrence.KEY_TOKEN);
+        APIInterface apiInterface = ApiClient.getClient().create(APIInterface.class);
+        Call<GetBookmarkListResponse> call = apiInterface.Getbookmark("Bearer " + token);
+        call.enqueue(new Callback<GetBookmarkListResponse>() {
             @Override
-            public void onResponse(Call<DriverListResponse> call, Response<DriverListResponse> response)
+            public void onResponse(Call<GetBookmarkListResponse> call, Response<GetBookmarkListResponse> response)
             {
+                dialog.dismiss();
+                Toast.makeText(Bookmark.this, "Hello PSR - "+response, Toast.LENGTH_SHORT).show();
                 if (response.body().getStatus()) {
-                    dialog.dismiss();
+                    //  dialog.dismiss();
                     mListData = response.body().getResult();
                     setProduct();
                 } else {
-                    dialog.dismiss();
+                    // dialog.dismiss();
                     Toast.makeText(Bookmark.this, "No Data Get", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
-            public void onFailure(Call<DriverListResponse> call, Throwable t) {
+            public void onFailure(Call<GetBookmarkListResponse> call, Throwable t) {
 
                 dialog.dismiss();
                 call.cancel();
@@ -103,7 +106,7 @@ public class Bookmark extends AppCompatActivity {
 
     private void setProduct() {
         if (mListData != null && mListData.size() > 0) {
-            rv_MyProjectAdapter = new HomeFoodAdapter(Bookmark.this, (ArrayList<Result>) mListData);
+            rv_MyProjectAdapter = new BookmarkAdapter(Bookmark.this, (ArrayList<Result>) mListData);
             rv_MyProjectList.setAdapter(rv_MyProjectAdapter);
         }
 

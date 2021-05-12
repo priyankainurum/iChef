@@ -1125,6 +1125,7 @@
 
             >
             <TextView
+                android:id="@+id/submitbtn"
                 android:layout_weight="1"
                 android:background="@drawable/border"
                 android:backgroundTint="@color/grey"
@@ -1139,6 +1140,7 @@
                 ></TextView>
 
             <TextView
+
                 android:layout_weight="1"
                 android:background="@drawable/border"
                 android:backgroundTint="@color/themered"

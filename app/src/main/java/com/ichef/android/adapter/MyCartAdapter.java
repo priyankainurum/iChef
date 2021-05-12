@@ -48,8 +48,8 @@ public void onBindViewHolder(ViewHolder holder, int position) {
 
     // holder.drivername.setText(mlist.get(position).getFirstName()+" "+mlist.get(position).getLastName());
      holder.name.setText(mlist.get(position).getFoodItemID());
-     holder.more.setText(mlist.get(position).getDiningTime());
-     holder.amount.setText(mlist.get(position).getPrice());
+ //    holder.more.setText(mlist.get(position).getDiningTime());
+//     holder.amount.setText(mlist.get(position).getPrice());
      id =mlist.get(position).getId();
 
     holder.itemView.setOnClickListener(new View.OnClickListener() {

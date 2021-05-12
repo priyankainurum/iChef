@@ -127,7 +127,7 @@ public class HomePageActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 v.startAnimation(AnimationUtils.loadAnimation(HomePageActivity.this, R.anim.image_click));
-                Intent in = new Intent(HomePageActivity.this, LocationManually.class);
+                Intent in = new Intent(HomePageActivity.this, LocationManually.class); //LocationManually
                 startActivity(in);
             }
         });

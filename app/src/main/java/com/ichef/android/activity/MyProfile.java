@@ -215,6 +215,11 @@ public class MyProfile extends AppCompatActivity {
                             Prefrence.save(getApplication(), Prefrence.KEY_USER_ID, "");
                             Prefrence.save(getApplication(), Prefrence.KEY_FIRST_NAME, "");
                             Prefrence.save(getApplication(), Prefrence.KEY_EMAIL_ID, "");
+                            Prefrence.save(getApplication(), Prefrence.KEY_MOBILE_NO,"");
+                            Prefrence.save(getApplication(), Prefrence.KEY_USERTYPE, "");
+                            Prefrence.save(getApplication(), Prefrence.KEY_USER_ID, "");
+
+
                             Intent in = new Intent(MyProfile.this, Login.class);
                             startActivity(in);
                             finish();

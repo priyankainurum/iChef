@@ -1,5 +1,7 @@
 package com.ichef.android.retrofit;
 
+import com.google.android.gms.common.api.Api;
+
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
@@ -17,9 +19,13 @@ public class ApiClient {
 
     public static Retrofit getClient() {
 
+
+
+
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client = new OkHttpClient.Builder()
+               // .addInterceptor(OAuthInterceptor("Bearer", "---ACCESS---TOKEN---"))
                 .addInterceptor(interceptor)
                 .readTimeout(2, TimeUnit.MINUTES)
                 .connectTimeout(2, TimeUnit.MINUTES)
@@ -44,5 +50,9 @@ public class ApiClient {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         return retrofit;
+    }
+
+    private static Interceptor OAuthInterceptor(String bearer, String s) {
+        return null;
     }
 }
